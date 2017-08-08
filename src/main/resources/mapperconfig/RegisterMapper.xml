@@ -9,13 +9,8 @@
         INSERT INTO t_user (username,phone,password) VALUES (#{userName},#{phone},#{password})
     </insert>
 
-    <!-- 用户登录-->
-    <select id="login"  resultType="User">
-        SELECT * FROM t_user WHERE username= #{userName} OR phone=#{userName} AND password= #{password}
-    </select>
-
     <!-- 用户验证唯一-->
-    <select id="usernameOnly" resultType="User" parameterType="String">
+    <select id="userNameOnly" resultType="User" parameterType="String">
         SELECT * FROM t_user WHERE username= #{userName}
     </select>
 

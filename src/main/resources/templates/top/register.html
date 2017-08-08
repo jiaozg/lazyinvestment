@@ -55,19 +55,6 @@
         }
     </style>
 
-<!--    <script>
-        $(document).ready(function() {
-            $("#validate").click(function() {
-                alert("ddd")
-                $.get("/hwj/validate");
-
-
-         /*   $("#phoneVerfiyCode").removeAttr("display");*/
-          /*  $("#validate").attr("display","none");*/
-            });
-        });
-
-    </script>-->
 
 </head>
 
@@ -96,7 +83,7 @@
         </div>
         <div class="l-right">
             <p class="g-topbar-nav">
-                <a href="/hwj/tologin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
                 <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header" rel="nofollow">注册</a>
                 <a href="vip.html" class="g-topbar-nav-link">VIP会员</a>
                 <a href="https://lantouzi.com/about/security" class="g-topbar-nav-link">安全保障</a>
@@ -113,7 +100,7 @@
             <h1 class="l-hide">懒投资</h1>
         </a>
         <span class="sub-title">注册 - 懒投资</span>
-        <a class="other-option" href="/hwj/tologin"><span class="iconfont">&#xe741;</span>立即登录</a>
+        <a class="other-option" href="/rcy/toLogin"><span class="iconfont">&#xe741;</span>立即登录</a>
     </div>
 </header>
 <div class="l-container">
@@ -135,19 +122,19 @@
                 </div>
                 <div class="line line-short">
                 <span class="tit">图形验证：</span>
-                <input type="text" id="checkCod" maxlength="6" onclick="createCode()" onblur="validateCode()"
+                <input type="text" id="checkCod" maxlength="6" onblur="validateCode()"
                        border="0" cellspacing="5" cellpadding="5"  placeholder="下面验证码" />
                   <!--  <a onclick="createCode()" style="float: right">看不清换一张</a>-->
                 <span id="sp" style="float: right; margin-right: 125px;color: red"></span>
                 <span class="err-area"><em class="err-tips"></em></span>
             </div>
             <div class="line line-short">
-                <div class="code" id="checkCode"  style="margin-left: 200px" ></div>
+                <div class="code" id="checkCode"  style="margin-left: 200px" onclick="createCode()" ></div>
             </div>
 
                 <div class="line line-short">
                     <span class="tit">手机验证：</span>
-                    <input type="text"  id="phoneVerfiyCode" maxlength="6" style="width: 200px" placeholder="短信验证码"/>
+                    <input type="text"  id="phoneVerfiyCode" name="validate" maxlength="6" style="width: 200px" placeholder="短信验证码"/>
                     <!--<a class="send-sms">
                         &lt;!&ndash;<span class="btn" id="validate"  onclick="settime(this)" th:value="获取验证码" ></span>&ndash;&gt;
                         <input  class="btn btn-success btn-lg active"  value="获取验证码" onclick="settime(this)" />
@@ -170,7 +157,7 @@
                     <span class="tit"></span>
                     <div class="actions">
                         <button type="submit" id="button" class="g-btn g-btn-large-major btn-reg tongji" disabled="disabled" data-category="立即注册" data-label="register">注册</button>
-                        <span class="err-area"><em class="err-tips"></em></span>
+                        <span class="err-area"><em class="err-tips" th:text="${session.say}"></em></span>
                     </div>
                     <div class="textmsg-notice">注册成功后将会收到懒投资发送的相关通知短信。</div>
                 </div>

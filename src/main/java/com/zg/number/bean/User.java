@@ -22,4 +22,5 @@ public class User {
     private List<AddCard> cards;//多个银行卡
     private List<Address> addresses;//收货地址集合
     private List<Record> records;//投资记录的集合
+    private String validate; //手机验证码
 }

@@ -22,6 +22,7 @@ public class LoginController {
     //到登录界面
     @RequestMapping("toLogin")
     public String toLogin() {
+        System.out.println("------fdfd");
         return "top/login";
     }
 
