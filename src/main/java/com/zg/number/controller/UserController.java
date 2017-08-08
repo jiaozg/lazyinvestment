@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
     //到主界面
-    @RequestMapping("index")
+    @RequestMapping("")
     public String toIndex() {
         return "index";
     }
