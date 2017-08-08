@@ -9,9 +9,8 @@ import java.util.List;
  */
 public interface RegisterService {
 
-    User register(User user);
-
-    User login(User user);
+    //注册
+    void register(User user);
 
     List<User> userNameOnly(String username);//用户名唯一
 
