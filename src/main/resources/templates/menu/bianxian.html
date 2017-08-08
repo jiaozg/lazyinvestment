@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="zh-CN" >
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>变现计划</title>
@@ -131,37 +131,53 @@
     });
 </script><div class="l-container">
     <div class="main">
-        <ul class="recommend-project clearfix">
+        <ul class="recommend-project clearfix" >
+
+
             <li>
-                <div class="tag makemore"></div>
+                <div class="tag makemore" th:object="${invest1}"></div>
                 <div class="inner">
-                    <p>变现8月期1280854</p>
+                    <p><span th:text="${invest1.planName}"></span></p>
+                    <!--<input type="text" th:text="${invest1.investId}">-->
                     <i class="i1">
-                        <em class="em1">9.14%</em>
+                        <em class="em1"><span th:text="${invest1.revenueMoney}+'%'"></span></em>
                         <em>年化收益率</em>
                     </i>
                     <i>
-                        <em class="em1">251天</em>
+                        <em class="em1"><span th:text="${invest1.projectTime}+'天'"></span></em>
                         <em>项目期限</em>
                     </i>
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzcc50542c535830d3" class="g-btn g-btn-medium-major btn-invest">马上投资</a>
+                    <a  href="show.html" th:href="@{/wrx/mashang(id=${invest1.investId})}" class="g-btn g-btn-medium-major btn-invest" >
+                        马上投资
+                    </a>
+
+                    <!--<a  href="show.html" th:href="@{/deleteUser(id=${f.id})}"
+                        type="button" class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span> Trash
+                    </a>-->
                 </div>
             </li>
+
             <li>
-                <div class="tag makemore"></div>
+                <div class="tag makemore" th:object="${invest2}"></div>
                 <div class="inner">
-                    <p>变现8月期1880838</p>
+                    <p><span th:text="${invest2.planName}"></span></p>
+
                     <i class="i1">
-                        <em class="em1">8.90%</em>
+                        <em class="em1"><span th:text="${invest2.revenueMoney}+'%'"></span></em>
                         <em>年化收益率</em>
                     </i>
                     <i>
-                        <em class="em1">249天</em>
+                        <em class="em1"><span th:text="${invest2.projectTime}+'天'"></span></em>
                         <em>项目期限</em>
                     </i>
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzaa84846d5949ec7f" class="g-btn g-btn-medium-major btn-invest">马上投资</a>
+
+                    <a  href="show.html" th:href="@{/wrx/mashang(id=${invest2.investId})}" class="g-btn g-btn-medium-major btn-invest" >
+                    马上投资
+                </a>
                 </div>
             </li>
+
         </ul>
         <h2 class="g-h2" id="prjList"><span class="bar"></span>项目列表<a href="https://lantouzi.com/post/682" class="support-lqjh">变现计划手续费调整通知&gt;&gt;</a></h2>
         <div class="sort">
@@ -226,6 +242,7 @@
                     </div>
                 </div>
             </li>
+
             <li>
                 <div class="pro-head">
                     <a href="https://lantouzi.com/bianxianjihua/view?id=ltzacf4cfdadd088e8a">变现23月期2480623</a>
@@ -793,23 +810,23 @@
             $('.main').css('min-height', $('.aside').height() + 50);
         }, 500);
 
-        // $('.sort').on('click', 'a', function(e){
-        // 	var $that = $(this);
-        // 	var corder = $that.data('order');
-        // 	if (corder == order) {
-        // 		dir = dir^1;
-        // 		if (!dir) {
-        // 			$that.addClass('down').removeClass('up');
-        // 		} else {
-        // 			$that.addClass('up').removeClass('down');
-        // 		}
-        // 	} else {
-        // 		dir = corder == 1 ? 1 : 0;
-        // 		$that.addClass('active').siblings('a').removeClass('active');
-        // 		order = corder;
-        // 	}
-        // 	query();
-        // });
+        $('.sort').on('click', 'a', function(e){
+            var $that = $(this);
+            var corder = $that.data('order');
+            if (corder == order) {
+                dir = dir^1;
+                if (!dir) {
+                    $that.addClass('down').removeClass('up');
+                } else {
+                    $that.addClass('up').removeClass('down');
+                }
+            } else {
+                dir = corder == 1 ? 1 : 0;
+                $that.addClass('active').siblings('a').removeClass('active');
+                order = corder;
+            }
+            query();
+        });
 
         //分页控件
         var pager = new PagerView('pager');
