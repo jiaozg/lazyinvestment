@@ -224,7 +224,8 @@
             <h3>欢迎使用懒投资</h3>
             <span class="welcome"></span>
             <ul class="amount-info">
-                <li><span>可用余额：</span><em>0.<span>00</span></em> 元</li>
+                <!--<p><span th:text="${msg}" style="color: red"></span></p>-->
+                <li>可用余额：<em><span  th:text="${session.loginUser.balance}"></span></em> 元</li>
                 <li><span>我的投资券：</span><a href="https://lantouzi.com/user/coupon?type=1" title="我的投资卷">320.00元</a></li>
             </ul>
             <a href="https://lantouzi.com/user" class="g-btn g-btn-medium-major">管理我的账户</a>

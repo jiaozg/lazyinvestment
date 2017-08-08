@@ -37,8 +37,7 @@ public class RegisterController {
     //注册
     @RequestMapping("register")
     public String register(User user,HttpSession session) {
-
-        Object validate1 = session.getAttribute("validate");
+        Object validate1 = session.getAttribute("checkValidate");
         String validate = user.getValidate();
         System.out.println(validate);
         if (validate.equals(validate1)){
@@ -84,13 +83,12 @@ public class RegisterController {
         }
     }
 
-
     //手机验证
     @RequestMapping("validate")
     public void validate(User user, HttpSession session) {
-        String sendPhoneCheakCode = PhoneCheckCode.sendPhoneCheakCode(user.getPhone());
-        System.out.println("向用户手机发送的验证码：" + sendPhoneCheakCode);
-        session.setAttribute("validate",sendPhoneCheakCode);
+        String sendPhoneCheckCode = PhoneCheckCode.sendPhoneCheakCode(user.getPhone());
+        System.out.println("向用户手机发送的验证码：" + sendPhoneCheckCode);
+        session.setAttribute("checkValidate",sendPhoneCheckCode);
     }
 
 
