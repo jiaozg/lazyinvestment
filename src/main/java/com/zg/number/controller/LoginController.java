@@ -31,6 +31,7 @@ public class LoginController {
         User loginUser = loginService.login(user);
         System.out.println("登陆过后的用户:" + loginUser);
         if (loginUser != null) {
+            System.out.println("-------登陆所需要的数据--------");
             return "top/loginSuccess";
         }
         model.addAttribute("msg", "用户名或密码错误");
