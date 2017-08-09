@@ -4,6 +4,7 @@ import com.zg.number.bean.AddCard;
 import com.zg.number.bean.User;
 import com.zg.number.mapper.CardMapper;
 import com.zg.number.service.CardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("hwj")
 public class CardController {
 
+    @Autowired
     private CardService cardService;
     //我的账户页面
     @RequestMapping("myCard")
@@ -36,8 +38,10 @@ public class CardController {
         User loginUser = (User) session.getAttribute("loginUser");
         int userId = loginUser.getUserId();
         System.out.println(userId);
-
-        return "centre/yinhang";
+        addCard.setUid(userId);
+        System.out.println(addCard);
+        cardService.addcardxinxi(addCard);
+        return "forward:myCard";
     }
 
 }

@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>我的账户 - 懒投资</title>
@@ -115,7 +115,7 @@
         <div id="ltz-user-index">
             <div class="user-brief ">
                 <div class="user-info clearfix">
-                    <span class="user-name">您好，chuanzige</span>
+                    <span class="user-name">您好，<em th:text="${session.loginUser.userName}"></em></span>
                     <a href="https://lantouzi.com/vip" class="iconfont vip">&#xe663;</a>
                     <a href="https://lantouzi.com/user/account" title="手机号" class="iconfont">&#xe633;</a>
                     <a href="https://lantouzi.com/user/account/verify_mail" class="iconfont unfinished" title="邮箱">&#xe634;</a>
@@ -409,16 +409,16 @@
                     <h3>开通银行存管账户</h3>
                     <p>懒投资资金账户全面升级，请先开通银行存管账户，完成后，即可进行充值、提现、投资等操作。</p>
                     <div class="btn-wrap">
-                        <a href="https://lantouzi.com/user/verify/idcard" class="g-btn g-btn-medium-major">立即开通</a>
+                        <a href="/hwj/addCard" class="g-btn g-btn-medium-major">立即开通</a>
                         <a href="javascript:" trigger="close">稍后开通</a>
                     </div>
-                </div>
+                 </div>
                 <div class="right img-wrap">
                     <img src="https://s1.lantouzi.com/img/cunguan/safe_v2.png" alt="" />
                 </div>
             </div>
         </script>
-        <script>
+    <script>
             require(['widgets/popupBox'], function(Dialog){
                 var cunguan = Dialog({
                     body: $('#cunguanDialog').html()
