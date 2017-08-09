@@ -1,15 +1,28 @@
+
+
+$(document).ready(function () {
+    createCode();
+});
 //用户名唯一验证
 $(document).ready(function () {
 
         $("#username").blur(function () {
 
             var name = $("#username").val();
+            if (name != ""){
+                var f = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+            }
                 $.ajax({
                     type: "post",
                     url: "usernameOnly.action?username=" + name,
                     success: function (data) {
                         if (data == "false") {
                             $("#namesp").text("");
+                            if (f.test(name)) {
+                                $("#namesp").text("");
+                            } else {
+                                $("#namesp").text("用户名有误");
+                            }
                             $("#button").removeAttr("disabled"); //移除disabled属性
                         }
                         if (data == "true") {
@@ -27,13 +40,24 @@ $(document).ready(function () {
 
         $("#phone").blur(function () {
             var phone = $("#phone").val();
+            if(phone != ""){
+                var re = /^1[34578]\d{9}$/;
+            }
+
+
             $.ajax({
                 type: "post",
                 url: "phoneOnly.action?phone=" + phone,
                 success: function (data) {
 
                     if (data == "false") {
+
                         $("#phonesp").text("");
+                        if (re.test(phone)) {
+                            $("#phonesp").text("");
+                        } else {
+                            $("#phonesp").text("手机号有误");
+                        }
                         $("#button").removeAttr("disabled"); //移除disabled属性
                     }
                     if (data == "true") {
@@ -42,6 +66,8 @@ $(document).ready(function () {
                     }
                 }
             });
+
+
         });
 });
 //图形验证码
