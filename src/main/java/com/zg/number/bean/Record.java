@@ -14,5 +14,6 @@ public class Record {
     private String irecordTime;//投资时间
     private String investType;//投资方式
     private String recordStatus;//状态
+    private int uid;
     private User user;
 }
