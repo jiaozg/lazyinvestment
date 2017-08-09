@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,8 +46,11 @@
     <script src="/static/js/lib/placeholder.js"></script>
     <![endif]-->
     <script src="/static/js/lib/require-2.1.18.min.js"></script>
-    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
-    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
+   <!-- <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>-->
+    <!--jquery-->
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!--angularJs-->
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
 <header class="g-topbar">
@@ -97,7 +99,10 @@
             <a class="g-header-nav-link " href="https://lantouzi.com/">首页</a>
             <a class="g-header-nav-link " href="https://lantouzi.com/project">懒人计划</a>
             <a class="g-header-nav-link " href="https://lantouzi.com/lingqianjihua">零钱计划</a>
-            <a class="g-header-nav-link on" href="https://lantouzi.com/bianxianjihua">变现计划</a>
+            <!--<a class="g-header-nav-link on" href="https://lantouzi.com/bianxianjihua">变现计划</a>-->
+            <a th:href="@{../wrx/selectInvest}" class="g-header-nav-link " >
+                变现计划
+            </a>
             <a class="g-header-nav-link " href="https://lantouzi.com/enjoy">享乐计划<!-- <i class="beta" style="width:24px;">新</i> --></a>
             <a class="g-header-nav-link " href="https://lantouzi.com/stars">群星计划</a>
             <!-- 	<div class="g-header-nav-link parent g-header-nav-parent ">
@@ -110,7 +115,7 @@
             <a class="g-header-nav-link " href="https://lantouzi.com/user" rel="nofollow">我的账户</a>
         </nav>
     </div>
-</header>
+
 <script>
     require(['widgets/header_nav']);
 </script>
@@ -118,10 +123,78 @@
 <script>
     require(['widgets/topbar_social_contact']);
 </script>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.name
+
+            = "";
+    });
+</script>
+
+
+<script  th:inline="javascript">
+
+    //获取后台参数给s2变量，<%%>表示这范围内是服务器解析的语言
+    function lianDong(){
+        alert("=============");
+        //js获取thymeleaf中的变量的值
+       // var surplusMoney = $("#surplusMoney").val();
+        var surplusMoney = [[${project.surplusMoney}]]
+        alert("剩余金额为:"+surplusMoney);
+        //通过jquery获取年化收益
+        //var revenueMoney = $("#revenueMoney").val();
+        //投资金额为:amount
+        //获取项目期限
+        //var projectTime = $("#projectTime").val();
+
+        var kk =Integer.parseInt(surplusMoney);
+        //点击全额投资:点击按钮隐藏
+        $("#full").hide();
+        //将剩余的金额添加到输入框里边
+        $("#amount").val(kk);
+
+        //再次获取输入框中的数据
+        var amount =$("#amount").val();
+        if(amount!=surplusMoney){
+            $("#full").show();
+        }
+
+        /*if(amount==surplusMoney){
+
+            var yuji = (revenueMoney*amount/365)*projectTime ;
+            $("#yuji").html("预计收益"+yuji+"元").css("color","red");
+
+        }*/
+
+
+
+       /* if(amount%10!=0){
+            // 非全额购买，投资金额只能是100的整数倍
+            $("#error").html("非全额购买，投资金额只能是100的整数倍").css("color","red");
+        }
+
+        if(amount<100){
+
+            $("#error").html("投资金额至少为100元").css("color","red");
+        }
+
+        if(amount%100==0){
+            //当输入的投资金额是100的整数倍,算出预计收益=年化收益*投资金额/365*项目期限
+            //计算预计收益
+            var yuji = (revenueMoney*amount/365)*projectTime ;
+            $("#yuji").html("预计收益"+yuji+"元").css("color","red");
+        }
+*/
+    }
+</script>
+
+</header>
 <div class="l-container prj-view">
     <nav class="g-crumbs">
         <span class="bar"></span>
-        <a href="https://lantouzi.com/" class="link">懒投资</a>
+        <a href="https://lantouzi.com/" class="link">懒投资</a>方
         &gt;
         <a href="https://lantouzi.com/bianxianjihua" class="link">项目列表</a>
         &gt;
@@ -152,9 +225,9 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td><span class="red"><em><span th:text="${project.revenueMoney}+'%'"></span></em></span></td>
-                        <td><span><em class="black"><span th:text="${project.projectTime}+'天'"></span></em></span></td>
-                        <td><span><em class="black"><span th:text="${project.endtime}"></span></em></span></td>
+                        <td><span class="red"><em><span id="revenueMoney" th:text="${project.revenueMoney}+'%'"></span></em></span></td>
+                        <td><span><em class="black"><span id="projectTime" th:text="${project.projectTime}+'天'"></span></em></span></td>
+                        <td><span><em class="black"><span  th:text="${project.endtime}"></span></em></span></td>
                     </tr>
                     </tbody>
                 </table>
@@ -173,27 +246,41 @@
         <section class="prj-buy l-right">
             <p class="risk-tips">懒投资提醒您：投资有风险，选择需谨慎！</p>
             <section class="buy-section status-buy">
-                <form action="https://lantouzi.com/bianxianjihua/buy" id="buy-form">
+                <form action="" id="buy-form">
                     <input type="hidden" name="id" value="ltzaa84846d5949ec7f">
                     <p>项目剩余金额：
                         <strong class="prj-left-amount">
-                            <span class="yuan" th:text="${project.surplusMoney}+'元'"></span>
+                            <span class="yuan" id="surplusMoney" th:text="${project.surplusMoney}+'元'"></span>
                         </strong>
-                        <a href="javascript:" class="full-btn" id="full">全额投资</a>
+                        <!--<a href="javascript:" class="full-btn" id="full">全额投资</a>-->
+                        <button class="full-btn" id="full" onclick="lianDong()">全额投资</button>
                     </p>
+
+                    <!--
+                       <div ng-app="myApp" ng-controller="myCtrl">
+                       投资金额: <input ng-model="name" id="yj">
+                       <h1>预计收益: {{name*0.101*726/365}}</h1>
+                       <span id="sy"></span>
+                       </div>
+                   -->
+
+
                     <p class="touzi">投资金额：
-                        <input type="text" name="amount" class="g-input-money" id="amount" maxlength="10" autocomplete="off"/>
+                        <input type="text"  name="amount" class="g-input-money" id="amount" maxlength="10" autocomplete="off"/>
+
                         <span class="yuan">元</span>
                     </p>
-                    <p class="error-tips"></p>
+                    <p class="error-tips">
+                        <span id="error"></span>
+                    </p>
                     <p class="yuji">
-                        预计收益<span class="income"><strong id="income"></strong>元</span>
+                        预计收益<span class="income" id="yuji"></span>
                     </p>
                     <p class="user-available">
                         账户余额：
                         <strong class="available">0.00元</strong>
-                    </p>
-                    <button type="submit" id="submit" class="g-btn g-btn-large-major g-btn-disabled tongji" data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>
+                    </p><!--tongji   -->
+                    <button type="submit" id="submit" data-category="懒人计划详情-马上投资" data-label="project" class="g-btn g-btn-large-major g-btn-disabled " >马上投资</button>
                 </form>
             </section>
         </section>
