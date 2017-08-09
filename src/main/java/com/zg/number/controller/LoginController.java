@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by 任彩雨 on 2017/8/7.
  * 登录的Controller
@@ -27,12 +29,12 @@ public class LoginController {
     }
 
     @RequestMapping("login")
-    public String login(User user, Model model) {
+    public String login(User user, Model model, HttpSession session) {
         System.out.println("登陆的用户:" + user);
         User loginUser = loginService.login(user);
         System.out.println("登陆过后的用户:" + loginUser);
         if (loginUser != null) {
-            System.out.println("-------登陆所需要的数据--------");
+            session.setAttribute("loginUser",loginUser);
             return "top/loginSuccess";
         }
         model.addAttribute("msg", "用户名或密码错误");
