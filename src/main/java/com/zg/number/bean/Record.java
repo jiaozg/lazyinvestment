@@ -15,4 +15,5 @@ public class Record {
     private String investType;//投资方式
     private String recordStatus;//状态
     private User user;
+    private int uid;
 }

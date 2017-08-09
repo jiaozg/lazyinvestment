@@ -118,8 +118,8 @@
 
                     <li>
                         <label>客户姓名</label>
-                        <input name="realName" id="realName" type="text" class="inpText "
-                               placeholder="请输入客户姓名" datatype="*,realName" value="" nullmsg="请输入客户姓名！"/>
+                        <input name="cardName" id="realName" type="text" class="inpText "
+                               placeholder="请输入客户姓名" datatype="*,cardName" value="" nullmsg="请输入客户姓名！"/>
 
                     </li>
 
@@ -139,7 +139,7 @@
 
                     <li>
                         <label>证件号</label>
-                        <input name="idCardNo" id="idCardNo" type="text" class="inpText "
+                        <input name="caerdNum" id="idCardNo" type="text" class="inpText "
                                placeholder="请输入证件号"  datatype="*,legalNo"  value="" nullmsg="请您填写证件号"/>
 
                     </li>
@@ -151,7 +151,7 @@
                     <li>
                         <!-- onkeyup事件:用户输入数字后每隔四位显示一个空格20170309 -->
                         <label>银行卡</label>
-                        <input name="bankcardNo" id="bankcardNo" type="text" class="inpText "
+                        <input name="cardCard" id="bankcardNo" type="text" class="inpText "
                                placeholder="请输入银行卡" datatype="*,bankCardNo" value="" nullmsg="请您填写银行卡号"
                                onkeyup="this.value=this.value.replace(/\D/g,'').replace(/....(?!$)/g,'$& ')"/>
                         <div class="bank_area fl bank_hide">
@@ -191,7 +191,7 @@
 
                     <li>
                         <label>预留手机号</label>
-                        <input name="mobile" id="mobile" type="text" class="inpText "
+                        <input name="cardPhone" id="mobile" type="text" class="inpText "
                                placeholder="请输入预留手机号" datatype="*,phone" value="" nullmsg="请您填写手机号"
                                maxlength="11"/>
 
@@ -229,7 +229,7 @@
 
                     <li>
                         <label>确认密码</label>
-                        <input name="confirmPassword" id="confirmPassword" type="password" class="inpText "
+                        <input name="cardPwd" id="confirmPassword" type="password" class="inpText "
                                placeholder="确认交易密码" datatype="*" recheck="password" errormsg="两次输入的密码不一致，请您核对后重新输入"
                                nullmsg="请您输入交易密码"/>
 

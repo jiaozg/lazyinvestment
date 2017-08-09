@@ -1,6 +1,8 @@
 package com.zg.number.controller;
 
+import com.zg.number.bean.Invest;
 import com.zg.number.bean.User;
+import com.zg.number.service.IndexService;
 import com.zg.number.service.LoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 /**
  * Created by 任彩雨 on 2017/8/7.
  * 登录的Controller
+ * 最后修改于2017/08/08 20:39 whc (添加功能:登录成功后页面主页数据从数据库中查处)
  */
 @Controller
 @RequestMapping("rcy")
@@ -18,6 +24,8 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private IndexService indexService;
 
     //到登录界面
     @RequestMapping("toLogin")
@@ -26,12 +34,23 @@ public class LoginController {
     }
 
     @RequestMapping("login")
-    public String login(User user, Model model) {
-        System.out.println("登陆的用户:" + user);
+    public String login(User user, Model model, HttpSession session) {
+        System.out.println("登陆的用户:" + user.getPhone());
         User loginUser = loginService.login(user);
-        System.out.println("登陆过后的用户:" + loginUser);
+        System.out.println("登陆过后的用户:" + loginUser.getUserName());
         if (loginUser != null) {
-            System.out.println("-------登陆所需要的数据--------");
+            session.setAttribute("loginUser",loginUser);
+            //登录成功后主页懒人计划中的三条数据
+            List<Invest> list = indexService.findIndexData();
+            for (Invest invest : list) {
+                System.out.print(invest.toString());
+            }
+            Invest invest = list.get(0);
+            Invest invest1 = list.get(1);
+            Invest invest2 = list.get(2);
+            model.addAttribute("data1",invest);
+            model.addAttribute("data2",invest1);
+            model.addAttribute("data3",invest2);
             return "top/loginSuccess";
         }
         model.addAttribute("msg", "用户名或密码错误");

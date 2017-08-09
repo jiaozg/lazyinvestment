@@ -24,7 +24,7 @@ public class RealizeController {
     /**
      * 首页
      */
-    @RequestMapping("index")
+    @RequestMapping("")
     public String toindex() {
         return "index";
     }

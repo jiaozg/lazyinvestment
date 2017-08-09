@@ -48,7 +48,7 @@
         <div class="l-right">
             <p class="g-topbar-nav">
                 <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
-                <a href="top/register.html" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
                    rel="nofollow">注册</a>
                 <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
                 <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
@@ -67,7 +67,7 @@
         </a>
         <nav class="g-header-nav">
             <a class="g-header-nav-link on">首页</a>
-            <a class="g-header-nav-link " href="./menu/lanren.html">懒人计划</a>
+            <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
             <a class="g-header-nav-link " href="./menu/lingqian.html">零钱计划</a>
 <!--            <a class="g-header-nav-link " href="./menu/bianxian.html">变现计划</a>-->
             <a th:href="@{../wrx/selectInvest}" class="g-header-nav-link " >
@@ -392,17 +392,17 @@
                         <div class="title">短期灵活</div>
                         <div class="circle">
                             <a href="./menu/lanren.html">
-                                <span class="g-rate">7.7<span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data1.revenueMoney}"><span class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
                         <div class="detail">
                             <div class="term">
-                                <em class="h">3</em>个月
+                                <em class="h"><span class="g-rate" th:text="${data1.projectTime}"></span></em>个天
                                 <p>项目期限</p>
                             </div>
                             <div class="profit">
-                                <em>189.86</em>元
+                                <em><span class="g-rate" th:text="${data1.surplusMoney}"></span></em>元
                                 <p>预计万元收益</p>
                             </div>
                         </div>
@@ -413,7 +413,7 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount"><em>921,500</em>元</span>
+                                <span class="amount">99999元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:7.85%;"></span>
@@ -441,17 +441,14 @@
                                 </div>
                             </div>
                             <div class="tags-wrapper">
-																																											<span class="hd-tag-container">
-																									<a class="hd-tag"
-                                                                                                       href="https://lantouzi.com/bianxianjihua/rules"
-                                                                                                       target="_blank">可变现</a>
-																								<div class="hd-tips-container">
-													<div class="hd-tips">
-														<b></b>
-														<i></i>
-														<p class="info">本项目持有1个月之后可变现																															<a
-                                                                href="https://lantouzi.com/bianxianjihua/rules"
-                                                                target="_blank" class="link">查看详情</a>
+					<span class="hd-tag-container">
+			<a class="hd-tag" href="https://lantouzi.com/bianxianjihua/rules"
+               target="_blank">可变现</a>
+	<div class="hd-tips-container">
+	<div class="hd-tips">
+			<b></b>
+			<i></i>
+			<p class="info">本项目持有1个月之后可变现	<a href="https://lantouzi.com/bianxianjihua/rules" target="_blank" class="link">查看详情</a>
 																													</p>
 														</div>
 												</div>
@@ -493,17 +490,17 @@
                         <div class="title">中期稳健</div>
                         <div class="circle">
                             <a href="./lanrenjihua/zhongjianwending.html">
-                                <span class="g-rate">8.3<span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data2.revenueMoney}"><span class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
                         <div class="detail">
                             <div class="term">
-                                <em class="h">6</em>个月
+                                <em class="h"><span class="g-rate" th:text="${data2.projectTime}"></span></em>天
                                 <p>项目期限</p>
                             </div>
                             <div class="profit">
-                                <em>425.23</em>元
+                                <em><span class="g-rate" th:text="${data2.surplusMoney}"></span></em>元
                                 <p>预计万元收益</p>
                             </div>
                         </div>
@@ -594,18 +591,17 @@
                         <div class="title">长期猛赚</div>
                         <div class="circle">
                             <a href="./lanrenjihua/.html">
-                                <span class="g-rate">9.7<spachangqimengzhuann
-                                        class="percent">%</spachangqimengzhuann></span>
+                                <span class="g-rate" th:text="${data3.revenueMoney}"><span class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
                         <div class="detail">
                             <div class="term">
-                                <em class="h">18</em>个月
+                                <em class="h"><span class="g-rate" th:text="${data3.projectTime}"></span></em>天
                                 <p>项目期限</p>
                             </div>
                             <div class="profit">
-                                <em>1,448.36</em>元
+                                <em><span class="g-rate" th:text="${data3.surplusMoney}"></span></em>元
                                 <p>预计万元收益</p>
                             </div>
                         </div>
