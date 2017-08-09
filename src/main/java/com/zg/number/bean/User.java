@@ -19,7 +19,12 @@ public class User {
     private String receiverPhone;//收货人手机号
     private String urgentName;//紧急联系人姓名
     private String urgentPhone;//紧急联系人手机号
+    private double balance;//用户的余额
     private List<AddCard> cards;//多个银行卡
     private List<Address> addresses;//收货地址集合
     private List<Record> records;//投资记录的集合
+
+    private String validate; //手机验证码
+    private Assest assest;
+
 }

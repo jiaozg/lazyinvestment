@@ -18,24 +18,21 @@ public class RegisterServiceImpl implements RegisterService {
     @Autowired
     private RegisterMapper registerMapper;
 
-    @Override
-    public User register(User user) {
-        User register = registerMapper.register(user);
-        return register;
-    }
+    //注册用户
 
     @Override
-    public User login(User user) {
-        User loginUser = registerMapper.login(user);
-        return loginUser;
+    public void register(User user) {
+        registerMapper.register(user);
     }
 
+    //验证用户名唯一
     @Override
     public List<User> userNameOnly(String username) {
         List<User> userNameOnly = registerMapper.userNameOnly(username);
         return userNameOnly;
     }
 
+    //验证手机号唯一
     @Override
     public List<User> phoneOnly(String phone) {
         List<User> phoneOnly = registerMapper.phoneOnly(phone);
