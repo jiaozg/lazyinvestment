@@ -5,7 +5,7 @@
 <mapper namespace="com.zg.number.mapper.CardMapper">
 
     <insert id="addcardxinxi" parameterType="AddCard">
-        INSERT INTO t_addcard(cardName,caerNum,cardPhone,cardPwd,uid) VALUES (
+        INSERT INTO t_addcard(cardName,caerdNum,cardCard,cardPhone,cardPwd,uid) VALUES (#{cardName},#{caerdNum},#{cardCard},#{cardPhone},#{cardPwd},#{uid})
     </insert>
 
 
