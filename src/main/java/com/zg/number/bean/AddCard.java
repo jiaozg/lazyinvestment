@@ -10,11 +10,12 @@ import lombok.Data;
  */
 @Data
 public class AddCard {
-    private int cardId;
-    private String cardName;
-    private String caerdNum;
-    private String cardCard;
-    private String cardPhone;
-    private String cardPwd;
+    private int cardId;//id
+    private String cardName;//客户姓名
+    private String caerdNum;//证件号
+    private String cardCard;//银行卡
+    private String cardPhone;//预留手机号
+    private String cardPwd;//交易密码
     private User user;//User实体类
+    private int uid;//用户id
 }
