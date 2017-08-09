@@ -30,15 +30,14 @@ public class LoginController {
     //到登录界面
     @RequestMapping("toLogin")
     public String toLogin() {
-        System.out.println("------fdfd");
         return "top/login";
     }
 
     @RequestMapping("login")
     public String login(User user, Model model, HttpSession session) {
-        System.out.println("登陆的用户:" + user);
+        System.out.println("登陆的用户:" + user.getPhone());
         User loginUser = loginService.login(user);
-        System.out.println("登陆过后的用户:" + loginUser);
+        System.out.println("登陆过后的用户:" + loginUser.getUserName());
         if (loginUser != null) {
             session.setAttribute("loginUser",loginUser);
             //登录成功后主页懒人计划中的三条数据
