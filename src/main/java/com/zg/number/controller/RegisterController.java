@@ -23,11 +23,13 @@ public class RegisterController {
     private RegisterService registerService;
 
 
+    //注册跳转
     @RequestMapping("toregister")
     public String toRegister() {
         System.out.println("-------到注册界面的方法-------");
         return "top/register";
     }
+    //登录跳转
     @RequestMapping("toLogin")
     public String toLogin() {
         System.out.println("------fdfd");

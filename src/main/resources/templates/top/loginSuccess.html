@@ -49,7 +49,7 @@
             <p class="g-topbar-nav">
                 <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
                 ></span></a>
-                <a href="https://lantouzi.com/logout" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
                 <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
                 <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
                 <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
@@ -228,7 +228,7 @@
                 <li>可用余额：<em><span  th:text="${session.loginUser.balance}"></span></em> 元</li>
                 <li><span>我的投资券：</span><a href="https://lantouzi.com/user/coupon?type=1" title="我的投资卷">320.00元</a></li>
             </ul>
-            <a href="https://lantouzi.com/user" class="g-btn g-btn-medium-major">管理我的账户</a>
+            <a href="/hwj/myCard" class="g-btn g-btn-medium-major">管理我的账户</a>
             <p class="user-ext-info"><span class="iconfont">&#xe604;</span>资金已由厦门银行存管</p>
             <div class="ft">
                 <a href="https://lantouzi.com/user/recharge" class="recharge tongji" data-category="首页-充值"
