@@ -2,7 +2,6 @@ package com.zg.number.controller;
 
 import com.zg.number.bean.AddCard;
 import com.zg.number.bean.User;
-import com.zg.number.mapper.CardMapper;
 import com.zg.number.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

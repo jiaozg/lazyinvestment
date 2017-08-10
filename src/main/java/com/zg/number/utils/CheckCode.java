@@ -1,14 +1,11 @@
 package com.zg.number.utils;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.util.Random;
-
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.Random;
 
 /**
  * Created by 任彩雨 on 2017/8/9.

@@ -3,8 +3,6 @@ package com.zg.number.controller;
 import com.zg.number.bean.User;
 import com.zg.number.service.RegisterService;
 import com.zg.number.utils.PhoneCheckCode;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
