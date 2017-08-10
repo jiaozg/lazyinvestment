@@ -13,7 +13,6 @@ import java.util.List;
  * Created by WangHongChuan on 2017/8/8.
  */
 @Controller
-@RequestMapping("whc")
 public class IndexController {
     @Autowired
     private IndexService indexService;
@@ -32,6 +31,14 @@ public class IndexController {
         model.addAttribute("data2",invest1);
         model.addAttribute("data3",invest2);
         return "index";
+    }
+
+    @RequestMapping("findInvestData")
+    public String findInvestData(Model model,Integer id){
+        Invest oneInvestData = indexService.findOneInvestData(id);
+        model.addAttribute("oneInvestData",oneInvestData);
+        System.out.print("拿到id了。。。。。"+oneInvestData.getInvestId()+oneInvestData.getPlanName());
+        return "lanrenjihua/mashangtouzi";
     }
 
 

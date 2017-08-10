@@ -61,8 +61,8 @@
 </header>
 <header class="g-header">
     <div class="l-container clearfix">
-        <a href="https://lantouzi.com/" class="g-header-logo" title="懒投资">
-            <img src="https://s1.lantouzi.com/img/201612/53ef617a4124fb2da54ab79c27945889.png" alt="懒投资"/>
+        <a href="" class="g-header-logo" title="懒投资">
+            <img src="../images/logo.png" alt="懒投资"/>
             <h1 class="l-hide">懒投资</h1>
         </a>
         <nav class="g-header-nav">
@@ -402,7 +402,7 @@
                                 <p>项目期限</p>
                             </div>
                             <div class="profit">
-                                <em><span class="g-rate" th:text="${data1.surplusMoney}"></span></em>元
+                                <em></em>元
                                 <p>预计万元收益</p>
                             </div>
                         </div>
@@ -413,7 +413,7 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount">99999元</span>
+                                <span class="amount"><span class="g-rate" th:text="${data1.surplusMoney}"></span>元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:7.85%;"></span>
@@ -479,11 +479,11 @@
 														</div>
 												</div>
 											</span>
+
                             </div>
                         </div>
                     </div>
-                    <a href="./lanrenjihua/duanqilinghuo.html" title="懒人计划3月期9018601"
-                       class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
+                        <a th:href="@{/findInvestData(id=${data1.investId})}" class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
                 </li>
                 <li class="prj-wrapper">
                     <div class="hover-wrapper">
@@ -500,7 +500,7 @@
                                 <p>项目期限</p>
                             </div>
                             <div class="profit">
-                                <em><span class="g-rate" th:text="${data2.surplusMoney}"></span></em>元
+                                <em></em>元
                                 <p>预计万元收益</p>
                             </div>
                         </div>
@@ -511,7 +511,7 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount"><em>174,200</em>元</span>
+                                <span class="amount"><em><span class="g-rate" th:text="${data2.surplusMoney}"></span></em>元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:82.58%;"></span>
@@ -583,8 +583,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="./lanrenjihua/zhongjianwending.html    " title="懒人计划6月期7018569"
-                       class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
+                    <a th:href="@{/findInvestData(id=${data2.investId})}" class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
                 </li>
                 <li class="prj-wrapper">
                     <div class="hover-wrapper">
@@ -601,7 +600,7 @@
                                 <p>项目期限</p>
                             </div>
                             <div class="profit">
-                                <em><span class="g-rate" th:text="${data3.surplusMoney}"></span></em>元
+                                <em></em>元
                                 <p>预计万元收益</p>
                             </div>
                         </div>
@@ -612,7 +611,7 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount"><em>84,800</em>元</span>
+                                <span class="amount"><em><span class="g-rate" th:text="${data3.surplusMoney}"></span></em>元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:91.52%;"></span>
@@ -679,8 +678,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="./lanrenjihua/changqimengzhuan.html" title="懒人计划18月期7016312"
-                       class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
+                    <a th:href="@{/findInvestData(id=${data3.investId})}" class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
                 </li>
             </ul>
         </div>
@@ -922,7 +920,7 @@
     <a href="https://lantouzi.com/mobile/download" target="_blank" id="enjoy-link" title="App下载">
         <i class="iconfont">&#xe68e;</i>
         App下载 </a>
-    <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAyODY1M180MzE1NzBfNDAwODA3ODAwMF8yXw" target="_blank"
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=980708601&site=qq&menu=yes" target="_blank"
        title="在线客服" rel="nofollow"><i class="iconfont">&#xe661;</i>在线客服</a>
     <a id="backTop" title="回到顶部" rel="nofollow"><i class="iconfont">&#xe660;</i>回到顶部</a>
 </div>
