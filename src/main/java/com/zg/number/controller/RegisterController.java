@@ -29,6 +29,7 @@ public class RegisterController {
         System.out.println("-------到注册界面的方法-------");
         return "top/register";
     }
+
     //登录跳转
     @RequestMapping("toLogin")
     public String toLogin() {
@@ -38,18 +39,18 @@ public class RegisterController {
 
     //注册
     @RequestMapping("register")
-    public String register(User user,HttpSession session) {
+    public String register(User user, HttpSession session) {
         Object validate1 = session.getAttribute("checkValidate");
         String validate = user.getValidate();
         System.out.println(validate);
-        if (validate.equals(validate1)){
+        if (validate.equals(validate1)) {
             System.out.println("---------register1------");
             registerService.register(user);
             System.out.println("---------register2------");
             return "forward:toLogin";
         }
         System.out.println("---------register3------");
-        session.setAttribute("say","手机验证码错误！");
+        session.setAttribute("say", "手机验证码错误！");
         return "forward:toregister";
     }
 
@@ -87,10 +88,12 @@ public class RegisterController {
 
     //手机验证
     @RequestMapping("validate")
-    public void validate(User user, HttpSession session) {
+    @ResponseBody
+    public String validate(User user, HttpSession session) {
         String sendPhoneCheckCode = PhoneCheckCode.sendPhoneCheakCode(user.getPhone());
         System.out.println("向用户手机发送的验证码：" + sendPhoneCheckCode);
-        session.setAttribute("checkValidate",sendPhoneCheckCode);
+        session.setAttribute("checkValidate", sendPhoneCheckCode);
+        return null;
     }
 
 
