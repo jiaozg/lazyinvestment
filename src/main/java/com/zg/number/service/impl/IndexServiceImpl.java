@@ -12,7 +12,7 @@ import java.util.List;
  * Created by WangHongChuan on 2017/8/8.
  */
 @Service
-public class IndexServiceImpl implements IndexService{
+public class IndexServiceImpl implements IndexService {
     @Autowired
     private IndexMapper indexMapper;
 
@@ -20,5 +20,10 @@ public class IndexServiceImpl implements IndexService{
     @Override
     public List<Invest> findIndexData() {
         return indexMapper.findIndexData();
+    }
+
+    @Override
+    public Invest findOneInvestData(Integer investId) {
+        return indexMapper.findOneInvestData(investId);
     }
 }

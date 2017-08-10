@@ -4,7 +4,6 @@ import com.zg.number.bean.Invest;
 import com.zg.number.bean.User;
 import com.zg.number.service.IndexService;
 import com.zg.number.service.LoginService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,11 +34,11 @@ public class LoginController {
 
     @RequestMapping("login")
     public String login(User user, Model model, HttpSession session) {
-        System.out.println("登陆的用户:" + user.getPhone());
+        System.out.println("登陆的用户:" + user.getPhone() + "  " + user.getPassword());
         User loginUser = loginService.login(user);
-        System.out.println("登陆过后的用户:" + loginUser.getUserName());
         if (loginUser != null) {
-            session.setAttribute("loginUser",loginUser);
+            session.setAttribute("uId", loginUser.getUserId());
+            session.setAttribute("loginUser", loginUser);
             //登录成功后主页懒人计划中的三条数据
             List<Invest> list = indexService.findIndexData();
             for (Invest invest : list) {
@@ -48,9 +47,9 @@ public class LoginController {
             Invest invest = list.get(0);
             Invest invest1 = list.get(1);
             Invest invest2 = list.get(2);
-            model.addAttribute("data1",invest);
-            model.addAttribute("data2",invest1);
-            model.addAttribute("data3",invest2);
+            model.addAttribute("data1", invest);
+            model.addAttribute("data2", invest1);
+            model.addAttribute("data3", invest2);
             return "top/loginSuccess";
         }
         model.addAttribute("msg", "用户名或密码错误");
