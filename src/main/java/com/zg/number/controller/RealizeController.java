@@ -77,6 +77,17 @@ public class RealizeController {
 
     }
 
+    /**
+     * 将投资人投资的信息添加到记录表中
+     */
+    @RequestMapping("addRecord")
+    public String addRecord(String touzi){
+        System.out.println(touzi);
+        //
+
+        return "";
+    }
+
 
 
 }
