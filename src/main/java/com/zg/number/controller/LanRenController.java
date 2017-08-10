@@ -1,10 +1,13 @@
 package com.zg.number.controller;
 
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
 import com.zg.number.bean.User;
+import com.zg.number.service.IndexService;
 import com.zg.number.service.LanRenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,11 +23,8 @@ public class LanRenController {
     @Autowired
     private LanRenService lanRenService;
 
-    //进入投资页面
-    @RequestMapping("touzi")
-    public String touzi(){
-        return "lanrenjihua/mashangtouzi";
-    }
+    @Autowired
+    private IndexService indexService;
 
     //懒人计划页面
     @RequestMapping("lanRen")
@@ -38,8 +38,22 @@ public class LanRenController {
     @RequestMapping("selectUserAndAssest")
     private String selectUserAndAssest(ModelMap modelMap){
         List<User> list = lanRenService.selectUserAndRecord();
-        System.out.println(list);
         modelMap.addAttribute("list",list);
         return "menu/lanren";
+    }
+
+    //投资详情页面数据获取
+    @RequestMapping("touzi")
+    public String findInvestData(Model model, Integer id){
+        Invest oneInvestData = indexService.findOneInvestData(id);
+        model.addAttribute("oneInvestData",oneInvestData);
+        return "lanrenjihua/mashangtouzi";
+    }
+
+    //投资记录表添加数据
+    @RequestMapping("insertRecord")
+    private String insertRecord(Record record){
+        lanRenService.insertRecord(record);
+        return "";
     }
 }

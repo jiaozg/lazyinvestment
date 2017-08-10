@@ -1,6 +1,7 @@
 package com.zg.number.service.impl;
 
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
 import com.zg.number.bean.User;
 import com.zg.number.mapper.LanRenMapper;
 import com.zg.number.service.LanRenService;
@@ -39,5 +40,12 @@ public class LanRenServiceImp implements LanRenService{
             i++;
         }
         return list;
-    };
+    }
+
+    @Override
+    public void insertRecord(Record record) {
+        lanRenMapper.insertRecord(record);
+    }
+
+    ;
 }
