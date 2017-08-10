@@ -16,6 +16,6 @@ public class Invest {
     private double planMoney;//预计年化
     private double WanYuanEarnings;//预计万元收益
     private String endtime;//到期日
-
+    private Integer touzi;//投资的金额
 
 }

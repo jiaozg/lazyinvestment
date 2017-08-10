@@ -38,21 +38,16 @@
     <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/bxjh/view.css?_v=e08648c7f5a0d9d328ee675deae4397d">
     <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/bxjh/recommand_tag.css?_v=82c0fa0546af3162f1f5e2751d52500b">
     <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/detail.css?_v=fdb30a85e3b58a1337e027242c522ded">
-    <!--[if lt IE 9]>
-    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
-    <script src="/static/js/lib/selectivizr.js"></script>
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <script src="/static/js/lib/placeholder.js"></script>
-    <![endif]-->
-    <script src="/static/js/lib/require-2.1.18.min.js"></script>
-   <!-- <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>-->
+
     <!--jquery-->
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <!--angularJs-->
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
+
+
+
 <header class="g-topbar">
     <div class="l-container clearfix">
         <div class="l-left">
@@ -116,88 +111,15 @@
         </nav>
     </div>
 
-<script>
-    require(['widgets/header_nav']);
-</script>
-
-<script>
-    require(['widgets/topbar_social_contact']);
-</script>
-
-<script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-        $scope.name
-
-            = "";
-    });
-</script>
-
-
-<script  th:inline="javascript">
-
-    //获取后台参数给s2变量，<%%>表示这范围内是服务器解析的语言
-    function lianDong(){
-        alert("=============");
-        //js获取thymeleaf中的变量的值
-       // var surplusMoney = $("#surplusMoney").val();
-        var surplusMoney = [[${project.surplusMoney}]]
-        alert("剩余金额为:"+surplusMoney);
-        //通过jquery获取年化收益
-        //var revenueMoney = $("#revenueMoney").val();
-        //投资金额为:amount
-        //获取项目期限
-        //var projectTime = $("#projectTime").val();
-
-        var kk =Integer.parseInt(surplusMoney);
-        //点击全额投资:点击按钮隐藏
-        $("#full").hide();
-        //将剩余的金额添加到输入框里边
-        $("#amount").val(kk);
-
-        //再次获取输入框中的数据
-        var amount =$("#amount").val();
-        if(amount!=surplusMoney){
-            $("#full").show();
-        }
-
-        /*if(amount==surplusMoney){
-
-            var yuji = (revenueMoney*amount/365)*projectTime ;
-            $("#yuji").html("预计收益"+yuji+"元").css("color","red");
-
-        }*/
-
-
-
-       /* if(amount%10!=0){
-            // 非全额购买，投资金额只能是100的整数倍
-            $("#error").html("非全额购买，投资金额只能是100的整数倍").css("color","red");
-        }
-
-        if(amount<100){
-
-            $("#error").html("投资金额至少为100元").css("color","red");
-        }
-
-        if(amount%100==0){
-            //当输入的投资金额是100的整数倍,算出预计收益=年化收益*投资金额/365*项目期限
-            //计算预计收益
-            var yuji = (revenueMoney*amount/365)*projectTime ;
-            $("#yuji").html("预计收益"+yuji+"元").css("color","red");
-        }
-*/
-    }
-</script>
 
 </header>
 <div class="l-container prj-view">
     <nav class="g-crumbs">
         <span class="bar"></span>
-        <a href="https://lantouzi.com/" class="link">懒投资</a>方
-        &gt;
-        <a href="https://lantouzi.com/bianxianjihua" class="link">项目列表</a>
-        &gt;
+        <a href="https://lantouzi.com/" class="link">懒投资</a>方>>
+        <a th:href="@{../wrx/selectInvest}" class="link" >
+            项目列表>>
+        </a>
         <em class="cur">变现8月期1880838</em>
     </nav>
     <div class="prj-info clearfix">
@@ -225,8 +147,8 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td><span class="red"><em><span id="revenueMoney" th:text="${project.revenueMoney}+'%'"></span></em></span></td>
-                        <td><span><em class="black"><span id="projectTime" th:text="${project.projectTime}+'天'"></span></em></span></td>
+                        <td><span class="red"><em><span  th:text="${project.revenueMoney}+'%'"></span></em></span></td>
+                        <td><span><em class="black"><span  th:text="${project.projectTime}+'天'"></span></em></span></td>
                         <td><span><em class="black"><span  th:text="${project.endtime}"></span></em></span></td>
                     </tr>
                     </tbody>
@@ -247,40 +169,124 @@
             <p class="risk-tips">懒投资提醒您：投资有风险，选择需谨慎！</p>
             <section class="buy-section status-buy">
                 <form action="" id="buy-form">
-                    <input type="hidden" name="id" value="ltzaa84846d5949ec7f">
+                    <!--<input type="hidden" name="id" value="">    -->
                     <p>项目剩余金额：
                         <strong class="prj-left-amount">
-                            <span class="yuan" id="surplusMoney" th:text="${project.surplusMoney}+'元'"></span>
+                            <span class="yuan"  th:text="${project.surplusMoney}+'元'"></span>
                         </strong>
-                        <!--<a href="javascript:" class="full-btn" id="full">全额投资</a>-->
-                        <button class="full-btn" id="full" onclick="lianDong()">全额投资</button>
+                        <a class="full-btn" id="full" onclick="lianDong()">全额投资</a>
+                        <!--******************用button标签他会自动跳方法,并拼接参数************************************-->
+                        <!--<button class="full-btn" id="full" >全额投资</button>   {{name*0.101/365*752}}  -->
                     </p>
 
-                    <!--
-                       <div ng-app="myApp" ng-controller="myCtrl">
-                       投资金额: <input ng-model="name" id="yj">
-                       <h1>预计收益: {{name*0.101*726/365}}</h1>
-                       <span id="sy"></span>
-                       </div>
-                   -->
+
+                    <div ng-app="myApp" ng-controller="personCtrl">
+                        <p class="touzi">投资金额：
+                        <input type="text" ng-model="name" name="touzi" id="amount"  class="g-input-money"  maxlength="10" autocomplete="off"/>
+
+                        </p>
+
+                        <font color="red">{{fullName()}}</font>
+                        <span id="wrx" class=""></span>
+                    </div>
 
 
-                    <p class="touzi">投资金额：
-                        <input type="text"  name="amount" class="g-input-money" id="amount" maxlength="10" autocomplete="off"/>
 
-                        <span class="yuan">元</span>
-                    </p>
-                    <p class="error-tips">
-                        <span id="error"></span>
-                    </p>
-                    <p class="yuji">
-                        预计收益<span class="income" id="yuji"></span>
-                    </p>
+                    <script th:inline="javascript">
+
+                        //js获取thymeleaf中的变量的值:投资金额
+                        //通过jquery获取年化收益
+                        var revenueMoney = [[${project.revenueMoney}]];
+                        //获取项目期限
+                        var projectTime = [[${project.projectTime}]];
+                        //获取剩余金额
+                        var  surplus = [[${project.surplusMoney}]];
+
+                        function lianDong(){
+                            var  sp = [[${project.surplusMoney}]];
+                            //alert(surplus);
+                            //点击全额投资:点击按钮隐藏
+                            $("#full").hide();
+                            //将马上投资按钮中的禁用class样式属性移除
+                            $("#jinyong").removeClass("g-btn-disabled");
+                            //将剩余的金额添加到输入框里边
+                            $("#amount").val(sp);
+                            var shouyi =""+ ((sp)*revenueMoney/365)*projectTime;
+                            var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
+                            var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
+                            var shouyi4 =shouyi3+shouyi2;
+                            $("#wrx").html("预计收益"+shouyi4+"元").css("color","red");
+                        }
+
+
+                        var app = angular.module('myApp', []);
+                        app.controller('personCtrl', function($scope) {
+
+                            $scope.name = 0;
+
+                            $scope.fullName = function() {
+
+
+                                if($scope.name==0){
+                                    //$("#wrx").hide();
+                                    return "";
+                                }
+                                    //如果改动的数据与余额不同,则将全额投资的按钮显示出来   | number:2
+                                    if(surplus!=$scope.name&&$scope.name%100==0&&$scope.name>=100&&surplus>=$scope.name) {
+                                        $("#wrx").hide();
+                                    //将马上投资的按钮的禁用属性移除
+                                        $("#jinyong").removeClass("g-btn-disabled");
+                                        $("#full").show();
+                                        var shouyi =""+ (($scope.name)*revenueMoney/365)*projectTime;
+                                        var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
+                                        var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
+                                        var shouyi4 =shouyi3+shouyi2;
+                                        return "预计收益"+shouyi4+"元";
+                                    }
+
+                                    //如果改动的数据与余额相同,则将全额投资的按钮隐藏起来  .745448
+                                    if(surplus==$scope.name) {
+                                        $("#wrx").hide();
+                                        $("#full").hide();
+                                        $("#jinyong").removeClass("g-btn-disabled");
+                                        var shouyi =""+ (($scope.name)*revenueMoney/365)*projectTime;
+                                        var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
+                                        var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
+                                        var shouyi4 =shouyi3+shouyi2;
+                                        return "预计收益"+shouyi4+"元";
+                                    }
+
+                                    // 非全额购买，投资金额只能是100的整数倍
+                                    if($scope.name%100!=0&&$scope.name>=100&&surplus>=$scope.name){
+                                        $("#wrx").hide();
+                                        $("#jinyong").addClass("g-btn-disabled");
+                                        return "非全额购买，投资金额只能是100的整数倍";
+                                    }
+
+                                    //投资金额至少为100元
+                                    if($scope.name<100&&$scope.name%100!=0){
+                                        $("#wrx").hide();
+                                        $("#jinyong").addClass("g-btn-disabled");
+                                        return "投资金额至少为100元";
+                                    }
+
+                                    //投资金额至少为100元
+                                    if($scope.name>surplus){
+                                        $("#wrx").hide();
+                                        $("#jinyong").addClass("g-btn-disabled");
+                                        return "投资金额不能超过项目剩余金额";
+                                    }
+                            }
+                        });
+                    </script>
+
+
                     <p class="user-available">
                         账户余额：
-                        <strong class="available">0.00元</strong>
-                    </p><!--tongji   -->
-                    <button type="submit" id="submit" data-category="懒人计划详情-马上投资" data-label="project" class="g-btn g-btn-large-major g-btn-disabled " >马上投资</button>
+                        <strong class="available" th:text="${captail.captailMoney}+'元'"></strong>
+                    </p><!--tongji  -->
+                    <button type="submit" id="jinyong"  data-label="project"  data-category="懒人计划详情-马上投资"
+                            class="g-btn g-btn-large-major g-btn-disabled " >马上投资</button>
                 </form>
             </section>
         </section>
@@ -420,7 +426,9 @@
     if ($('.status-buy').length) {//有购买模块
         require(['v3/bxjh/invest']);
     }
-</script><footer class="g-footer">
+</script>
+
+<footer class="g-footer">
     <div class="l-container">
         <div class="clearfix">
             <div class="g-footer-section">
@@ -490,7 +498,7 @@
                 <p>投资有风险，选择需谨慎</p>
             </div>
         </div>
-        <!-- 	<div class="g-footer-links">
+        	<div class="g-footer-links">
                 <section class="container clearfix" id="g-footer-links"></section>
                 <div class="g-footer-links-icon" title="展开/收起">
                     <i class="iconfont">&#xe67d;</i>
@@ -498,7 +506,7 @@
                 <div class="g-footer-links-more">
                     <a href="https://lantouzi.com/links">全部</a>
                 </div>
-            </div> -->
+            </div>
         <div class="g-footer-safeguard clearfix">
             <a href="http://www.xmccb.com" class="safe-yeepay" target="_blank" rel="nofollow"></a>
             <a href="http://www.geotrust.com/" class="safe-geotrust" target="_blank" rel="nofollow"></a>
@@ -540,7 +548,7 @@
     });
 </script>
 
-<script>
+<!--<script>
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
@@ -564,8 +572,8 @@
         // });
 
     })();
-</script>
-<script>
+</script>-->
+<!--<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -574,7 +582,7 @@
     ga('require', 'linker');
     ga('linker:autoLink', ['lanlicai.com']);
     ga('send', 'pageview');
-</script>
+</script>-->
 <script>
     (function($) {
         var Track_Obj = {
@@ -638,5 +646,6 @@
         Track_Obj.init();
         window.track_event = Track_Obj.track_event;
     })(jQuery);
-</script></body>
+</script>
+</body>
 </html>
