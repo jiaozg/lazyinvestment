@@ -17,8 +17,8 @@ public interface LanRenMapper {
 
     List<Invest> selectLanRen();//懒人计划总查询
 
-//    int count ();//总页数
+    List<User> selectUserAndRecord();//投资风云榜
 
-    List<User> selectUserAndAssest();//投资风云榜
+    void insertRecord(Record record);//投资记录表添加数据
 
 }

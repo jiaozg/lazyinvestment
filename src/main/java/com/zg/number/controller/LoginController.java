@@ -37,6 +37,7 @@ public class LoginController {
     public String login(User user, Model model, HttpSession session) {
         System.out.println("登陆的用户:" + user.getPhone());
         User loginUser = loginService.login(user);
+        session.setAttribute("uId",loginUser.getUserId());
         System.out.println("登陆过后的用户:" + loginUser.getUserName());
         if (loginUser != null) {
             session.setAttribute("loginUser",loginUser);
