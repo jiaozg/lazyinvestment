@@ -5,6 +5,7 @@ import com.zg.number.bean.User;
 import com.zg.number.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -43,4 +44,19 @@ public class CardController {
         return "forward:myCard";
     }
 
+
+    //个人信息 根据用户名查询用户 根据用户id查询银行卡姓名
+    @RequestMapping("xinxi")
+    public String xinXi(Model model, HttpSession session) {
+        User loginUser = (User) session.getAttribute("loginUser");
+        String userName = loginUser.getUserName();
+        int userId = loginUser.getUserId();
+        User user = cardService.selectUserAll(userName);
+        AddCard addCard = cardService.selectAddCard(userId);
+        model.addAttribute("xinxiuser",user);
+        model.addAttribute("xinxiaddcard",addCard);
+        System.out.println(user);
+        System.out.println(addCard);
+        return "menu/gerenxinxixiangqing";
+    }
 }
