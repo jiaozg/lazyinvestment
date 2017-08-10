@@ -6,6 +6,7 @@
 
 <select id="findIndexData" resultType="invest">
     SELECT DISTINCT
+        investId,
         planName,
         revenueMoney,
         projectTime,
@@ -23,4 +24,21 @@
            AND projectTime = 365
        ORDER BY revenueMoney
 </select>
+
+
+<select id="findOneInvestData" resultType="invest" parameterType="java.lang.Integer">
+        SELECT
+            investId,
+            planName,
+            revenueMoney,
+            projectTime,
+            wanyuanearnings,
+            surplusMoney
+        FROM
+            t_invest
+        WHERE
+            investId = #{investId}
+    </select>
+
+
 </mapper>

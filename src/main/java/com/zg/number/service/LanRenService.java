@@ -1,6 +1,7 @@
 package com.zg.number.service;
 
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
 import com.zg.number.bean.User;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface LanRenService {
 
     List<Invest> selectLanRen();//懒人计划总查询
 
-//    int count ();//总页数
+    List<User> selectUserAndRecord();//投资风云榜
 
-    List<User> selectUserAndAssest();//投资风云榜
+    void insertRecord(Record record);//投资记录表添加数据
 }

@@ -2,7 +2,6 @@ package com.zg.number.mapper;
 
 import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
-import com.zg.number.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 

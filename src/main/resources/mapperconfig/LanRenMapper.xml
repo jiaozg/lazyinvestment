@@ -12,5 +12,18 @@
         SELECT COUNT(investId) FROM t_invest
     </select>
 
+    <!-- 定义数据库字段与实体对象的映射关系  -->
+    <resultMap type="com.zg.number.bean.User" id="userAndAssest">
+        <id column="userId" property="userId" />
+        <result column="username" property="userName" />
+        <!-- 一对一的关系 -->
+        <association property="assest" javaType="com.zg.number.bean.Assest">
+            <id column="aId" property="aId" />
+            <result column="investmentRecord" property="investmentRecord" />
+        </association>
+    </resultMap>
+    <select id="selectUserAndAssest"  resultMap="userAndAssest">
+        SELECT t_user.username,t_asset.investmentRecord FROM t_user,t_asset WHERE t_user.userId = t_asset.uId ORDER BY t_asset.investmentRecord DESC LIMIT 0,15
+    </select>
 
 </mapper>
