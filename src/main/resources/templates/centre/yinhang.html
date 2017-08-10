@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +82,43 @@
     <link type="text/css" href="../css/style_v13.css" rel="stylesheet"/>
     <link type="text/css" href="../css/jquery.areaopt.css" rel="stylesheet"/>
 
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/yinhang.js"></script>
 
+
+  <!--  js正则实现用户输入银行卡号的控制及格式化-->
+    <script language="javascript" type="text/javascript">
+        function formatBankNo (BankNo){
+
+            if (BankNo.value == "") return;
+            var account = new String (BankNo.value);
+            account = account.substring(0,22); /*帐号的总数, 包括空格在内 */
+            if (account.match (".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null){
+                /* 对照格式 */
+                if (account.match (".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" +
+                        ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}|" + ".[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{7}") == null){
+                    var accountNumeric = accountChar = "", i;
+                    for (i=0;i<account.length;i++){
+                        accountChar = account.substr (i,1);
+                        if (!isNaN (accountChar) && (accountChar != " ")) accountNumeric = accountNumeric + accountChar;
+                    }
+                    account = "";
+                    for (i=0;i<accountNumeric.length;i++){    /* 可将以下空格改为-,效果也不错 */
+                        if (i == 4) account = account + " "; /* 帐号第四位数后加空格 */
+                        if (i == 8) account = account + " "; /* 帐号第八位数后加空格 */
+                        if (i == 12) account = account + " ";/* 帐号第十二位后数后加空格 */
+                        account = account + accountNumeric.substr (i,1)
+                    }
+                }
+            }
+            else
+            {
+                account = " " + account.substring (1,5) + " " + account.substring (6,10) + " " + account.substring (14,18) + "-" + account.substring(18,25);
+            }
+            if (account != BankNo.value) BankNo.value = account;
+
+        }
+    </script>
 
 </head>
 <body>
@@ -109,147 +146,151 @@
         </div>
     </div>
     <div class="div-m">
-        <form id="form" action="register" method="post">
-            <input id="serviceType" name="serviceType" type="hidden" value="BANKCARD_AUTH"/>
-            <div class="formBlock">
-                <div class="titleInfo blue">用户信息：</div>
-                <ul>
+            <form id="form" action="/hwj/addcardxinxi" method="post">
+                <input id="serviceType" name="serviceType" type="hidden" value="BANKCARD_AUTH"/>
+                <div class="formBlock">
+                    <div class="titleInfo blue">用户信息：</div>
+                    <ul>
 
 
-                    <li>
-                        <label>客户姓名</label>
-                        <input name="realName" id="realName" type="text" class="inpText "
-                               placeholder="请输入客户姓名" datatype="*,realName" value="" nullmsg="请输入客户姓名！"/>
+                        <li>
+                            <label>客户姓名</label>
+                            <input name="cardName" id="realName" type="text" class="inpText "
+                                   placeholder="请输入客户姓名" datatype="*,cardName" value="" nullmsg="请输入客户姓名！"/>
 
-                    </li>
-
-
-
-
-
-
-                    <li>
-                        <label>证件类型</label>
-                        <span class="phone inpText">中华人民共和国身份证</span>
-                        <input type="hidden" name="credType"  id="newCredType" value="PRC_ID"/>
-                    </li>
-
-
-
-
-                    <li>
-                        <label>证件号</label>
-                        <input name="idCardNo" id="idCardNo" type="text" class="inpText "
-                               placeholder="请输入证件号"  datatype="*,legalNo"  value="" nullmsg="请您填写证件号"/>
-
-                    </li>
+                        </li>
 
 
 
 
 
-                    <li>
-                        <!-- onkeyup事件:用户输入数字后每隔四位显示一个空格20170309 -->
-                        <label>银行卡</label>
-                        <input name="bankcardNo" id="bankcardNo" type="text" class="inpText "
-                               placeholder="请输入银行卡" datatype="*,bankCardNo" value="" nullmsg="请您填写银行卡号"
-                               onkeyup="this.value=this.value.replace(/\D/g,'').replace(/....(?!$)/g,'$& ')"/>
-                        <div class="bank_area fl bank_hide">
-                            <span class="bankIcon"><img src=""/></span>
-                        </div>
+
+                        <li>
+                            <label>证件类型</label>
+                            <span class="phone inpText">中华人民共和国身份证</span>
+                            <input type="hidden" name="credType"  id="newCredType" value="PRC_ID"/>
+                        </li>
+
+
+
+
+                        <li>
+                            <label>证件号</label>
+                            <input name="caerdNum" id="idCardNo" type="text" class="inpText "
+                                   placeholder="请输入证件号"  datatype="*,legalNo"  value="" nullmsg="请您填写证件号"/>
+                                <span id="caerdNumsp" style="color: red"></span>
+
+                        </li>
 
 
 
 
 
-                        <span class="inpTips pa"><i></i>温馨提示：若银行卡为二类账户，将会影响提现，具体账户类型可咨询发卡行</span>
+                        <li>
+                            <!-- onkeyup事件:用户输入数字后每隔四位显示一个空格20170309 -->
+                            <label>银行卡</label>
+                            <input name="cardCard" id="bankcardNo" type="text" size="25"  class="inpText "
+                                   placeholder="请输入银行卡" datatype="*,bankCardNo" value="" nullmsg="请您填写银行卡号"
 
-
-
-                    </li>
-
-
-
-
-                    <li id="branchLi" style="display: none;">
-                        <label>支行信息</label>
-                        <div class="selectDiv pr">
-                            <input id="branchName" name="branchName" value="" class="inpText" datatype="*,branchName" placeholder="请选择支行信息" nullmsg="请选择支行信息"/>
-                            <input type="hidden" id="branchNo" name="branchNo" value=""/>
-
-                            <div class="selectUl pa" style="display: none;" id="selectUl">
-                                <ul>
-                                </ul>
+                                   onkeyup="formatBankNo(this)" onkeydown="formatBankNo(this)"
+                            />
+                           <!-- onkeyup="this.value=this.value.replace(/\D/g,'').replace(/....(?!$)/g,'$& ')"-->
+                            <div class="bank_area fl bank_hide">
+                                <span class="bankIcon"><img src=""/></span>
                             </div>
-                        </div>
-                    </li>
-
-                    <li class="aBank">
-                        <a href="javascript:void(0)" class="blue btnClick-3">支持银行</a>
-                    </li>
-
-
-                    <li>
-                        <label>预留手机号</label>
-                        <input name="mobile" id="mobile" type="text" class="inpText "
-                               placeholder="请输入预留手机号" datatype="*,phone" value="" nullmsg="请您填写手机号"
-                               maxlength="11"/>
-
-                    </li>
 
 
 
 
-                    <li>
-                        <label>验证码</label>
-                        <input name="smsCode" id="smsCode" type="text" class="inpText inpCode "
-                               value="" datatype="*" nullmsg="请您输入验证码"/>
-                        <input type="button" class="codeBtn " id="sendSmsVerify" value="发送验证码"/>
-                        <input type="hidden" name="smsCount" id="smsCount" value="60"/>
 
-                    </li>
-
-
-                </ul>
-                <div class="titleInfo blue">设置交易密码：</div>
-                <ul>
-
-                    <li>
-                        <label>创建密码</label>
-                        <input name="password" id="password" type="password" class="inpText" placeholder="输入交易密码"
-                               datatype="not_blank,password" nullmsg="请您输入交易密码"/>
+                            <span class="inpTips pa" id="cardsp"><i></i>温馨提示：若银行卡为二类账户，将会影响提现，具体账户类型可咨询发卡行</span>
 
 
 
-                        <span class="inpTips pa"><i></i>6-18位数字、大小写字母和特殊字符组合，不支持空格</span>
+                        </li>
 
 
-                    </li>
 
 
-                    <li>
-                        <label>确认密码</label>
-                        <input name="confirmPassword" id="confirmPassword" type="password" class="inpText "
-                               placeholder="确认交易密码" datatype="*" recheck="password" errormsg="两次输入的密码不一致，请您核对后重新输入"
-                               nullmsg="请您输入交易密码"/>
+                        <li id="branchLi" style="display: none;">
+                            <label>支行信息</label>
+                            <div class="selectDiv pr">
+                                <input id="branchName" name="branchName" value="" class="inpText" datatype="*,branchName" placeholder="请选择支行信息" nullmsg="请选择支行信息"/>
+                                <input type="hidden" id="branchNo" name="branchNo" value=""/>
 
-                    </li>
+                                <div class="selectUl pa" style="display: none;" id="selectUl">
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
 
-                    <li>
-                        <label>&nbsp;</label>
-                        <input type="submit" class="submitBtn" id="nextButton" value="同意协议确定注册"/>
+                        <li class="aBank">
+                            <a href="javascript:void(0)" class="blue btnClick-3">支持银行</a>
+                        </li>
 
-                    </li>
 
-                    <li class="ruleLi">
-                        <label>&nbsp;</label>
-                        <a href="javascript:void(0);" class="rule blue protocol" data-type="registerProtocol"> 《用户服务协议》 </a><br>
+                        <li>
+                            <label>预留手机号</label>
+                            <input name="cardPhone" id="mobile" type="text" class="inpText "
+                                   placeholder="请输入预留手机号" datatype="*,phone" value="" nullmsg="请您填写手机号"
+                                   maxlength="11"/>
+                            <span id="mobilesp" style="color:red;"></span>
+                        </li>
 
-                    </li>
 
-                </ul>
-                <div class="clear"></div>
-            </div>
+
+
+                        <li>
+                            <label>验证码</label>
+                            <input name="smsCode" id="smsCode" type="text" class="inpText inpCode "
+                                   value="" datatype="*" nullmsg="请您输入验证码"/>
+                            <input type="button" class="codeBtn " id="sendSmsVerify" value="发送验证码"/>
+                            <input type="hidden" name="smsCount" id="smsCount" value="60"/>
+
+
+                        </li>
+
+
+                    </ul>
+                    <div class="titleInfo blue">设置交易密码：</div>
+                    <ul>
+
+                        <li>
+                            <label>创建密码</label>
+                            <input name="password" id="password" type="password" class="inpText" placeholder="输入交易密码"
+                                   clientidmode="Static" datatype="not_blank,password" nullmsg="请您输入交易密码"/>
+
+
+                            <span class="inpTips pa" id="passwordsp"><i></i>6-18位数字、大小写字母和特殊字符组合，不支持空格</span>
+
+
+                        </li>
+
+
+                        <li>
+                            <label>确认密码</label>
+                            <input name="cardPwd" id="confirmPassword" type="password" class="inpText "
+                                   clientidmode="Static"  placeholder="确认交易密码" datatype="*" recheck="password" errormsg="两次输入的密码不一致，请您核对后重新输入"
+                                   nullmsg="请您输入交易密码"/>
+                            <span id="confirmPasswordsp" style="color: red"></span>
+                        </li>
+
+                        <li>
+                            <label>&nbsp;</label>
+                            <input type="submit" class="submitBtn" id="nextButton" value="同意协议确定注册"/>
+
+                        </li>
+
+                        <li class="ruleLi">
+                            <label>&nbsp;</label>
+                            <a href="javascript:void(0);" class="rule blue protocol" data-type="registerProtocol"> 《用户服务协议》 </a><br>
+
+                        </li>
+
+                    </ul>
+                    <div class="clear"></div>
+                </div>
         </form>
     </div>
     <div class="clear"></div>

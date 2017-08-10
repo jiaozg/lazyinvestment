@@ -1,6 +1,8 @@
 package com.zg.number.mapper;
 
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
+import com.zg.number.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
@@ -15,5 +17,8 @@ public interface LanRenMapper {
 
     List<Invest> selectLanRen();//懒人计划总查询
 
-//    int count ();//总页数
+    List<User> selectUserAndRecord();//投资风云榜
+
+    void insertRecord(Record record);//投资记录表添加数据
+
 }
