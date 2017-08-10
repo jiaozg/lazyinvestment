@@ -25,6 +25,6 @@ public class User {
     private List<Record> records;//投资记录的集合
 
     private String validate; //手机验证码
-    private Record record;
+
 
 }

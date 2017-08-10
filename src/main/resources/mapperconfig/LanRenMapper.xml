@@ -5,25 +5,12 @@
 <mapper namespace="com.zg.number.mapper.LanRenMapper">
 
     <select id="selectLanRen" resultType="com.zg.number.bean.Invest">
-        SELECT investId,planName,surplusMoney,surplusMoney,projectTime,revenueMoney FROM t_invest
+        SELECT planName,surplusMoney,surplusMoney,projectTime,revenueMoney FROM t_invest
     </select>
 
-    <!-- 定义数据库字段与实体对象的映射关系  -->
-    <resultMap type="com.zg.number.bean.User" id="userAndRecord">
-        <id column="userId" property="userId" />
-        <result column="username" property="userName" />
-        <!-- 一对一的关系 -->
-        <association property="record" javaType="com.zg.number.bean.Record">
-            <id column="recordId" property="recordId" />
-            <result column="recordMoney" property="recordMoney" />
-        </association>
-    </resultMap>
-    <select id="selectUserAndRecord"  resultMap="userAndRecord">
-        SELECT u.username,r.recordMoney FROM (SELECT t_record.uid,SUM(t_record.recordMoney) recordMoney FROM t_user,t_record WHERE t_user.userId = t_record.uid GROUP BY t_record.uid) r,t_user u WHERE r.uid = u.userId ORDER BY r.recordMoney DESC LIMIT 0,10
+
     </select>
 
-    <insert id="insertRecord" parameterType="com.zg.number.bean.Record">
-        INSERT INTO t_record (recordMoney,uid,irecordTime,investType,recordStatus) VALUES (#{money},#{uId},#{currenttime},'手动投资','成功')
-    </insert>
+
 
 </mapper>

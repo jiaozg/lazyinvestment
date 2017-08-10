@@ -69,14 +69,14 @@
             <a class="g-header-nav-link on">首页</a>
             <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
             <a class="g-header-nav-link " href="./menu/lingqian.html">零钱计划</a>
-<!--            <a class="g-header-nav-link " href="./menu/bianxian.html">变现计划</a>-->
-            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link " >
+            <!--            <a class="g-header-nav-link " href="./menu/bianxian.html">变现计划</a>-->
+            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link ">
                 变现计划
             </a>
             <a class="g-header-nav-link " href="./menu/xiangle.html">享乐计划
                 <!-- <i class="beta" style="width:24px;">新</i> --></a>
             <a class="g-header-nav-link " href="./menu/qunxing.html">群星计划</a>
-            <a class="g-header-nav-link " href="rcy/toMyAccount" rel="nofollow">我的账户</a>
+            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
         </nav>
     </div>
 </header>
@@ -113,6 +113,7 @@
             position: relative;
             margin: 0 auto;
         }
+
         .s_box {
             height: 355px;
             font-size: 12px;
@@ -121,48 +122,57 @@
             left: 50%;
             margin-left: -960px;
         }
-        .box {	display: inline-block;}
+
+        .box {
+            display: inline-block;
+        }
+
         .s_tag {
-            margin-left:-491px;
+            margin-left: -491px;
             position: absolute;
             bottom: -1px;
             left: 50%;
             z-index: 20;
             min-width: 980px;
         }
+
         .s_tag .tag {
             padding-left: 15px;
             width: 180px;
             height: 32px;
             float: left;
             overflow: hidden;
-            border-right: 1px solid rgba(255,255,255,.4);
-            border-top: 1px solid rgba(255,255,255,.4);
+            border-right: 1px solid rgba(255, 255, 255, .4);
+            border-top: 1px solid rgba(255, 255, 255, .4);
             line-height: 32px;
-            background: rgba(0,0,0,.4);
+            background: rgba(0, 0, 0, .4);
             color: #d2d2d2;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000, endColorstr=#7f000000);
             cursor: pointer;
         }
+
         .s_tag .ymui_ss_tag_on {
             margin: -8px 0 0 -1px;
             height: 40px;
             line-height: 40px;
             width: 179px;
-            border: 1px solid rgba(255,255,255,.4);
-            background: rgba(0,0,0,.6);
+            border: 1px solid rgba(255, 255, 255, .4);
+            background: rgba(0, 0, 0, .6);
             -ms-border: 1px solid #fff;
             color: #fff;
         }
+
         .inner-tag {
             border-left: none;
         }
+
         .s_tag .tag.outer-tag {
-            border-left: 1px solid rgba(255,255,255,.4);
+            border-left: 1px solid rgba(255, 255, 255, .4);
         }
+
         .preview, .next {
             display: none;
             position: absolute;
@@ -172,17 +182,20 @@
             z-index: 20;
             cursor: pointer;
         }
+
         .preview .iconfont, .next .iconfont {
             line-height: 355px;
             font-size: 40px;
             color: #fff;
         }
-        .preview{
+
+        .preview {
             left: 50%;
             margin-left: -650px;
             text-align: right;
         }
-        .next{
+
+        .next {
             right: 50%;
             margin-right: -650px;
             text-align: left;
@@ -213,7 +226,8 @@
         <div class="notlogin">
             <h3><strong>7.2%~9.6%</strong>懒人计划年化收益率</h3>
             <span class="welcome"></span>
-            <a class="g-btn g-btn-medium-major" href="top/register.html" title="注册领红包" rel="nofollow"><span class="icon"></span>注册领红包</a>
+            <a class="g-btn g-btn-medium-major" href="top/register.html" title="注册领红包" rel="nofollow"><span
+                    class="icon"></span>注册领红包</a>
             <p>已有账户?<a href="/rcy/toLogin" title="立即登录" rel="nofollow">立即登录</a></p>
         </div>
     </div>
@@ -392,7 +406,8 @@
                         <div class="title">短期灵活</div>
                         <div class="circle">
                             <a href="./menu/lanren.html">
-                                <span class="g-rate" th:text="${data1.revenueMoney}"><span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data1.revenueMoney}"><span
+                                        class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
@@ -413,7 +428,8 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount"><span class="g-rate" th:text="${data1.surplusMoney}"></span>元</span>
+                                <span class="amount"><span class="g-rate"
+                                                           th:text="${data1.surplusMoney}"></span>元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:7.85%;"></span>
@@ -448,7 +464,8 @@
 	<div class="hd-tips">
 			<b></b>
 			<i></i>
-			<p class="info">本项目持有1个月之后可变现	<a href="https://lantouzi.com/bianxianjihua/rules" target="_blank" class="link">查看详情</a>
+			<p class="info">本项目持有1个月之后可变现	<a href="https://lantouzi.com/bianxianjihua/rules" target="_blank"
+                                                class="link">查看详情</a>
 																													</p>
 														</div>
 												</div>
@@ -483,14 +500,16 @@
                             </div>
                         </div>
                     </div>
-                        <a th:href="@{/findInvestData(id=${data1.investId})}" class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
+                    <a th:href="@{/findInvestData(id=${data1.investId})}" class="g-btn g-btn-large-major tongji"
+                       data-category="明星-马上投资" data-label="index">马上投资</a>
                 </li>
                 <li class="prj-wrapper">
                     <div class="hover-wrapper">
                         <div class="title">中期稳健</div>
                         <div class="circle">
                             <a href="./lanrenjihua/zhongjianwending.html">
-                                <span class="g-rate" th:text="${data2.revenueMoney}"><span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data2.revenueMoney}"><span
+                                        class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
@@ -511,7 +530,8 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount"><em><span class="g-rate" th:text="${data2.surplusMoney}"></span></em>元</span>
+                                <span class="amount"><em><span class="g-rate"
+                                                               th:text="${data2.surplusMoney}"></span></em>元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:82.58%;"></span>
@@ -583,14 +603,16 @@
                             </div>
                         </div>
                     </div>
-                    <a th:href="@{/findInvestData(id=${data2.investId})}" class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
+                    <a th:href="@{/findInvestData(id=${data2.investId})}" class="g-btn g-btn-large-major tongji"
+                       data-category="明星-马上投资" data-label="index">马上投资</a>
                 </li>
                 <li class="prj-wrapper">
                     <div class="hover-wrapper">
                         <div class="title">长期猛赚</div>
                         <div class="circle">
                             <a href="./lanrenjihua/.html">
-                                <span class="g-rate" th:text="${data3.revenueMoney}"><span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data3.revenueMoney}"><span
+                                        class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
@@ -611,7 +633,8 @@
                             </div>
                             <div class="bottom">
                                 剩余金额
-                                <span class="amount"><em><span class="g-rate" th:text="${data3.surplusMoney}"></span></em>元</span>
+                                <span class="amount"><em><span class="g-rate"
+                                                               th:text="${data3.surplusMoney}"></span></em>元</span>
                             </div>
                             <div class="g-process">
                                 <span class="done" style="width:91.52%;"></span>
@@ -678,7 +701,8 @@
                             </div>
                         </div>
                     </div>
-                    <a th:href="@{/findInvestData(id=${data3.investId})}" class="g-btn g-btn-large-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
+                    <a th:href="@{/findInvestData(id=${data3.investId})}" class="g-btn g-btn-large-major tongji"
+                       data-category="明星-马上投资" data-label="index">马上投资</a>
                 </li>
             </ul>
         </div>

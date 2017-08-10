@@ -14,4 +14,10 @@
         select t.investId,t.planName,t.projectTime,t.surplusMoney,t.revenueMoney,t.planMoney,t.endtime from t_invest t where t.investId=#{investId}
     </select>
 
+    <!--余额查询-->
+    <select id="selectYvE" parameterType="int" resultType="com.zg.number.bean.Captail">
+        select * from captail where userId = #{userid}
+    </select>
+
+
 </mapper>

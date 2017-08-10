@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Service
 @Component
-public class LanRenServiceImp implements LanRenService{
+public class LanRenServiceImp implements LanRenService {
 
     @Autowired
     private LanRenMapper lanRenMapper;
