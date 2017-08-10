@@ -21,4 +21,9 @@ public class IndexServiceImpl implements IndexService{
     public List<Invest> findIndexData() {
         return indexMapper.findIndexData();
     }
+
+    @Override
+    public Invest findOneInvestData(Integer investId) {
+        return indexMapper.findOneInvestData(investId);
+    }
 }
