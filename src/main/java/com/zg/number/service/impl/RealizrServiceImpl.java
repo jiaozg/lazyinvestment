@@ -1,5 +1,6 @@
 package com.zg.number.service.impl;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
 import com.zg.number.mapper.RealizeMapper;
 import com.zg.number.service.RealizeService;
@@ -41,5 +42,14 @@ public class RealizrServiceImpl implements RealizeService {
         System.out.println(project);
 
         return project;
+    }
+    /**
+     * 余额查询
+     */
+    @Override
+    public Captail selectYvE(Integer id) {
+        Captail captail = realizeMapper.selectYvE(id);
+        System.out.println(captail);
+        return captail;
     }
 }
