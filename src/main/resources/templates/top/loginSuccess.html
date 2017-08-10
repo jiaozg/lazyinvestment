@@ -73,7 +73,7 @@
             <a class="g-header-nav-link " href="./menu/xiangle.html">享乐计划
                 <!-- <i class="beta" style="width:24px;">新</i> --></a>
             <a class="g-header-nav-link " href="./menu/qunxing.html">群星计划</a>
-            <a class="g-header-nav-link " href="./menu/wodezhanghu.html" rel="nofollow">我的账户</a>
+            <a class="g-header-nav-link " href="/rcy/toMyAccount" rel="nofollow">我的账户</a>
         </nav>
     </div>
 </header>
@@ -220,7 +220,7 @@
             <span class="welcome"></span>
             <ul class="amount-info">
                 <!--<p><span th:text="${msg}" style="color: red"></span></p>-->
-                <li>可用余额：<em><span  th:text="${session.loginUser.balance}"></span></em> 元</li>
+                <li>可用余额：<em><span th:text="${session.loginUser.balance}"></span></em> 元</li>
                 <li><span>我的投资券：</span><a href="https://lantouzi.com/user/coupon?type=1" title="我的投资卷">320.00元</a></li>
             </ul>
             <a href="/hwj/myCard" class="g-btn g-btn-medium-major">管理我的账户</a>
@@ -408,7 +408,8 @@
                         <div class="title">短期灵活</div>
                         <div class="circle">
                             <a href="./menu/lanren.html">
-                                <span class="g-rate" th:text="${data1.revenueMoney}"><span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data1.revenueMoney}"><span
+                                        class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
@@ -464,7 +465,8 @@
 	<div class="hd-tips">
 			<b></b>
 			<i></i>
-			<p class="info">本项目持有1个月之后可变现	<a href="https://lantouzi.com/bianxianjihua/rules" target="_blank" class="link">查看详情</a>
+			<p class="info">本项目持有1个月之后可变现	<a href="https://lantouzi.com/bianxianjihua/rules" target="_blank"
+                                                class="link">查看详情</a>
 																													</p>
 														</div>
 												</div>
@@ -506,7 +508,8 @@
                         <div class="title">中期稳健</div>
                         <div class="circle">
                             <a href="./lanrenjihua/zhongjianwending.html">
-                                <span class="g-rate" th:text="${data2.revenueMoney}"><span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data2.revenueMoney}"><span
+                                        class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
@@ -607,7 +610,8 @@
                         <div class="title">长期猛赚</div>
                         <div class="circle">
                             <a href="./lanrenjihua/.html">
-                                <span class="g-rate" th:text="${data3.revenueMoney}"><span class="percent">%</span></span>
+                                <span class="g-rate" th:text="${data3.revenueMoney}"><span
+                                        class="percent">%</span></span>
                                 年化收益率
                             </a>
                         </div>
