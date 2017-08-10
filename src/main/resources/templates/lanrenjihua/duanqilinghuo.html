@@ -178,21 +178,26 @@
                         </strong>
                     </div>
                     <div class="touzi">
-                        <label class="tit">投资金额：</label>
-                        <input type="text" name="amount" class="g-input-money" id="amount" maxlength="10" autocomplete="off"/>
-                        <em class="yuan">元</em>
-                    </div>
+                        <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+                        <body>
+                        <div ng-app="myApp" ng-controller="myCtrl">
+                            投资金额:
+                            <input type="text" name="amount" class="g-input-money" id="amount" maxlength="10" autocomplete="off" ng-model="name">
+                            <div class="error-tips" style="display: block;">预计收益: {{name*0.101*726/365 | number:2}}元</div>
+                        </div>
+
+                        <script>
+                            var app = angular.module('myApp', []);
+                            app.controller('myCtrl', function($scope) {
+                                $scope.name = "";
+                            });
+                        </script>
                     <div class="error-tips"></div>
                     <div class="yuji">
-                        <span class="no-amount-tips">投资10万元，</span>预计收益<span class="income"><strong id="income"></strong>元 <span id="more"></span></span>
                     </div>
                     <div class="mycoupon clearfix">
-                        <label class="tit">投资券：</label>
                         <div class="coupon-container">
-                            <div class="coupon-selected is-disabled"  id="coupon-selected">
-                                <span id="coupon-selected-text"></span>
-                                <span class="arrow"></span>
-                            </div>
+
                             <ul class="coupon-list">
                                 <li class="coupon buyong">
                                     <label for="c-0" class="label">

@@ -5,9 +5,7 @@ $(document).ready(function () {
 });
 //用户名唯一验证
 $(document).ready(function () {
-
         $("#username").blur(function () {
-
             var name = $("#username").val();
             if (name != ""){
                 var f = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
@@ -43,15 +41,11 @@ $(document).ready(function () {
             if(phone != ""){
                 var re = /^1[34578]\d{9}$/;
             }
-
-
             $.ajax({
                 type: "post",
                 url: "phoneOnly.action?phone=" + phone,
                 success: function (data) {
-
                     if (data == "false") {
-
                         $("#phonesp").text("");
                         if (re.test(phone)) {
                             $("#phonesp").text("");
@@ -66,8 +60,6 @@ $(document).ready(function () {
                     }
                 }
             });
-
-
         });
 });
 //图形验证码
@@ -89,7 +81,6 @@ function createCode() {
     }
 }
 function validateCode() {
-
     var inputCode = $("#checkCod").val();
     if (inputCode.length <= 0) {
 
@@ -110,7 +101,6 @@ function validateCode() {
 
 var countdown = 60;
 function settime(obj) {
-
     if (countdown == 0) {
         obj.removeAttribute("disabled");
         obj.value = "获取验证码";
@@ -122,7 +112,6 @@ function settime(obj) {
         countdown--;
     }
     setTimeout(function () {
-
             settime(obj)
         }
         , 1000)

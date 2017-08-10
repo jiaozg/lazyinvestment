@@ -1,12 +1,12 @@
 package com.zg.number.controller;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
 import com.zg.number.service.RealizeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +24,7 @@ public class RealizeController {
     /**
      * 首页
      */
-    @RequestMapping("")
+    @RequestMapping("index")
     public String toindex() {
         return "index";
     }
@@ -67,7 +67,11 @@ public class RealizeController {
         //根据id查询某个项目的详情
         System.out.println("========= 马上投资============"+id);
         Invest project = realizeService.projectstail(id);
+        //根据用户id查询余额
+        Captail captail = realizeService.selectYvE(id);
+
         map.put("project",project);
+        map.put("captail",captail);
         return "bianxianjiahua/investment";
 
     }

@@ -1,7 +1,7 @@
 package com.zg.number.mapper;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
-import com.zg.number.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +21,10 @@ public interface RealizeMapper {
      * 马上投资:根据id查询项目的详细信息
      */
     public Invest projectstail(Integer id);
+    /**
+     * 余额查询
+     */
+    public Captail selectYvE(Integer id);
 
 
 }

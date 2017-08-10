@@ -1,6 +1,5 @@
 package com.zg.number.service.impl;
 
-import com.zg.number.bean.User;
 import com.zg.number.mapper.UserMapper;
 import com.zg.number.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

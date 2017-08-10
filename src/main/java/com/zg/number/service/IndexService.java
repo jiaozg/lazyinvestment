@@ -10,4 +10,7 @@ import java.util.List;
 public interface IndexService {
     //获取主页上面的懒计划数据
     List<Invest> findIndexData();
+
+    //主页根据id去查询更详情的信息到懒计划详情投资页面
+    Invest findOneInvestData(Integer investId);
 }
