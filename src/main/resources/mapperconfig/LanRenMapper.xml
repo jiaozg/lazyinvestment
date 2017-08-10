@@ -19,7 +19,7 @@
         </association>
     </resultMap>
     <select id="selectUserAndRecord"  resultMap="userAndRecord">
-        SELECT u.username,r.recordMoney FROM (SELECT t_record.uid,SUM(t_record.recordMoney) recordMoney FROM t_user,t_record WHERE t_user.userId = t_record.uid GROUP BY t_record.uid) r,t_user u WHERE r.uid = u.userId LIMIT 0,10
+        SELECT u.username,r.recordMoney FROM (SELECT t_record.uid,SUM(t_record.recordMoney) recordMoney FROM t_user,t_record WHERE t_user.userId = t_record.uid GROUP BY t_record.uid) r,t_user u WHERE r.uid = u.userId ORDER BY r.recordMoney DESC LIMIT 0,10
     </select>
 
     <insert id="insertRecord" parameterType="com.zg.number.bean.Record">
