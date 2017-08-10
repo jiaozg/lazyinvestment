@@ -1,7 +1,6 @@
 package com.zg.number.controller;
 
 import com.zg.number.bean.Invest;
-import com.zg.number.bean.Record;
 import com.zg.number.bean.User;
 import com.zg.number.service.LanRenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,12 @@ public class LanRenController {
     @Autowired
     private LanRenService lanRenService;
 
+    //进入投资页面
+    @RequestMapping("touzi")
+    public String touzi(){
+        return "lanrenjihua/mashangtouzi";
+    }
+
     //懒人计划页面
     @RequestMapping("lanRen")
     public String selectLanRenAll(ModelMap modelMap){
@@ -32,7 +37,8 @@ public class LanRenController {
     //投资风云榜
     @RequestMapping("selectUserAndAssest")
     private String selectUserAndAssest(ModelMap modelMap){
-        List<User> list = lanRenService.selectUserAndAssest();
+        List<User> list = lanRenService.selectUserAndRecord();
+        System.out.println(list);
         modelMap.addAttribute("list",list);
         return "menu/lanren";
     }

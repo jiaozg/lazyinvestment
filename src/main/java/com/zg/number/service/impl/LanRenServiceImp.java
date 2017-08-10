@@ -28,8 +28,8 @@ public class LanRenServiceImp implements LanRenService{
 
     //投资风云榜
     @Override
-    public List<User> selectUserAndAssest() {
-        List<User> list=  lanRenMapper.selectUserAndAssest();
+    public List<User> selectUserAndRecord() {
+        List<User> list=  lanRenMapper.selectUserAndRecord();
         int i = 1;
         for (User u: list) {
             String sb = u.getUserName();
@@ -39,9 +39,5 @@ public class LanRenServiceImp implements LanRenService{
             i++;
         }
         return list;
-    }
-
-    ;
-
-
+    };
 }
