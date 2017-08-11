@@ -16,8 +16,16 @@
 
     <!--余额查询-->
     <select id="selectYvE" parameterType="int" resultType="com.zg.number.bean.Captail">
-        select * from captail where userId = #{userid}
+        select * from t_captail where userId = #{userid}
     </select>
 
+    <!--将投资信息注入到投资记录表-->
+    <insert id="addRecord" parameterType="com.zg.number.bean.Record" >
+        insert into t_record(recordMoney,irecordTime,uid) value(#{recordMoney},#{irecordTime},#{uid})
+    </insert>
 
+    <!--修改资产表的账户余额-->
+    <update id="updateCaptail" parameterType="com.zg.number.bean.Captail" >
+      update t_captail set captailMoney = #{captailMoney} where userId = #{userId};
+    </update>
 </mapper>

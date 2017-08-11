@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8">
     <title>懒人计划3月期6018458_年化收益率7.7% - 懒投资</title>
@@ -17,8 +18,11 @@
     <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/lrjh/tags.css?_v=ca471625b37b874d30ea0b4bf01ce7dc">
     <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/v3/lrjh/popup.css?_v=4dd296649fca6e4decfc123314623eef">
     <link rel="stylesheet" type="text/css" href="https://lantouzi.com/static/css/common/detail.css?_v=fdb30a85e3b58a1337e027242c522ded">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body>
+
+
 <header class="g-topbar">
     <div class="l-container clearfix">
         <div class="l-left">
@@ -51,6 +55,10 @@
             </p>
         </div>
     </div>
+
+
+
+
 </header>
 <header class="g-header">
     <div class="l-container clearfix">
@@ -164,6 +172,12 @@
                 </ul>
             </div>
         </section>
+        <!--<script>
+            //通过jquery获取年化收益
+            var revenueMoney = [[${oneInvestData.revenueMoney}]];
+            //获取项目期限
+            var projectTime = [[${oneInvestData.projectTime}]];
+        </script>-->
         <section class="prj-buy l-right">
             <div class="risk-tips">懒投资提醒您：投资有风险，选择需谨慎！</div>
             <section class="buy-section status-buy">
@@ -176,22 +190,38 @@
                             <span  th:text="${oneInvestData.surplusMoney}"></span><span class="yuan">元</span>
                         </strong>
                     </div>
-                    <div class="touzi">
-                        <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
-                        <div ng-app="myApp" ng-controller="myCtrl">
-                            投资金额:
-                            <input type="text" name="amount" class="g-input-money" id="amount" maxlength="10" autocomplete="off" ng-model="name">
-                            <div class="error-tips" style="display: block;">预计收益: {{name*0.101*726/365 | number:2}}元</div>
-                        </div>
 
+                    <div ng-app="myApp" ng-controller="personCtrl">
+                        <p class="touzi">投资金额：
+                            <input type="text" ng-model="name" name="touzi" id="amount"  class="g-input-money"  maxlength="10" autocomplete="off"/>
+                        </p>
+                        <font color="#dc143c">{{fullName()}}</font>
+                    </div>
 
+                   <script th:inline="javascript">
+                   //获取年化益率
+                   var revenueMoney = [[${oneInvestData.revenueMoney}]];
+                   //期限
+                   var projectTime = [[${oneInvestData.projectTime}]];
+//                   alert("年化收益率:"+revenueMoney+",项目期限:"+projectTime);
 
-                        <script>
-                            var app = angular.module('myApp', []);
-                            app.controller('myCtrl', function($scope) {
-                                $scope.name = "";
-                            });
-                        </script>
+                   var app = angular.module('myApp', []);
+                   app.controller('personCtrl', function($scope) {
+                       $scope.name = 0;
+                       $scope.fullName = function() {
+                           if($scope.name==0){
+                               return "";
+                           }else{
+                              // alert($scope.name);
+
+                               return "预计收益"+(($scope.name)*revenueMoney/365)*projectTime+"元";
+                           }
+
+                       }
+                   });
+
+                   </script>
+
 
                         <div class="error-tips"></div>
                         <div class="yuji">
@@ -219,9 +249,10 @@
                         </div>
                         <div class="user-available">
                             <label class="tit">账户余额：</label>
-                            <strong class="available">0.00元</strong>
+                            <strong class="available">1000000000000</strong>
                         </div>
-                        <button type="submit" id="submit" class="g-btn g-btn-large-major g-btn-disabled tongji" data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>
+                        <!--<button type="submit" id="submit" class="g-btn g-btn-large-major g-btn-disabled tongji" data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>-->
+                        <button type="submit" id="submit" class="g-btn g-btn-large-major tongji"  data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>
                     </div>  </form>
             </section>
         </section>

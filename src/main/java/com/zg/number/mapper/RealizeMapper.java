@@ -2,6 +2,7 @@ package com.zg.number.mapper;
 
 import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +26,13 @@ public interface RealizeMapper {
      * 余额查询
      */
     public Captail selectYvE(Integer id);
-
+    /**
+     * 将投资信息注入到投资记录表
+     */
+    public void addRecord(Record record);
+    /**
+     * 修改资产表的账户余额
+     */
+    public void updateCaptail(Captail captail);
 
 }

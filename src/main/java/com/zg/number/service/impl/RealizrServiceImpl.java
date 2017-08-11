@@ -2,6 +2,7 @@ package com.zg.number.service.impl;
 
 import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
 import com.zg.number.mapper.RealizeMapper;
 import com.zg.number.service.RealizeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +53,24 @@ public class RealizrServiceImpl implements RealizeService {
         System.out.println(captail);
         return captail;
     }
+
+    /**
+     * 将投资信息注入到投资记录表
+     */
+    @Override
+    public void addRecord(Record record) {
+        realizeMapper.addRecord(record);
+    }
+
+    /**
+     * 修改资产表的账户余额
+     */
+    @Override
+    public void updateCaptail(Captail captail) {
+        realizeMapper.updateCaptail(captail);
+    }
+
+
+
+
 }

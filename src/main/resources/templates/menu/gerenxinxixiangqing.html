@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>个人信息</title>
@@ -76,8 +76,8 @@
         </div>
         <div class="l-right">
             <p class="g-topbar-nav">
-                <a href="../top/login.html" class="g-topbar-nav-link" rel="nofollow">登录</a>
-                <a href="../top/register.html" class="g-topbar-nav-link tongji" data-category="注册" data-label="header" rel="nofollow">注册</a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header" rel="nofollow">注册</a>
                 <a href="../top/vip.html" class="g-topbar-nav-link">VIP会员</a>
                 <a href="../top/security.html" class="g-topbar-nav-link">安全保障</a>
                 <a href="../top/information.html" class="g-topbar-nav-link">信息披露</a>
@@ -93,7 +93,7 @@
             <h1 class="l-hide">懒投资</h1>
         </a>
         <nav class="g-header-nav">
-            <a class="g-header-nav-link " href="../index.html">首页</a>
+            <a class="g-header-nav-link " href="/index">首页</a>
             <a class="g-header-nav-link " href="lanren.html">懒人计划</a>
             <a class="g-header-nav-link " href="lingqian.html">零钱计划</a>
             <a class="g-header-nav-link on" >变现计划</a>
@@ -116,21 +116,21 @@
                         <h3>个人资料<span class="tail">（修改个人信息后，请重新登录进行更新）</span></h3>
                         <dl class="clearfix">
                             <dt>用户名：</dt>
-                            <dd>chuanzige </dd>
+                            <dd th:text="${xinxiuser.userName}"></dd>
                             <dt>姓名：</dt>
-                            <dd>
+                            <dd th:text="${xinxiaddcard.cardName}">
                                 请先<a href="https://lantouzi.com/user/verify/idcard" class="link">开通</a>银行存管账户
                             </dd>
                             <dt>身份证号：</dt>
-                            <dd>
+                            <dd th:text="${xinxiaddcard.caerdNum}">
                                 ---
                             </dd>
                             <dt>手机号：</dt>
-                            <dd>132****3502
+                            <dd th:text="${xinxiuser.phone}">132****3502
                                 <a class="link" href="https://lantouzi.com/user/account/changeusermobile">修改手机号</a>
                             </dd>
                             <dt>邮箱：</dt>
-                            <dd>
+                            <dd th:text="${xinxiuser.email}">
                                 <a href="https://lantouzi.com/user/account/verify_mail" class="link">验证邮箱</a>
                             </dd>
                             <dt>收货地址：</dt>
@@ -145,7 +145,7 @@
                                         <span class="addr-address"></span>
                                     </p>
                                     <p>
-                                        <strong class="addr-loading-msg">正在加载邮寄地址...</strong>
+                                        <!--<strong class="addr-loading-msg">正在加载邮寄地址...</strong>-->
                                         <a class="g-btn g-btn-small-major addr-btn addr-btn-mgmt">新增地址</a>
                                     </p>
                                 </div>
@@ -726,5 +726,6 @@
         Track_Obj.init();
         window.track_event = Track_Obj.track_event;
     })(jQuery);
-</script></body>
+</script>
+</body>
 </html>
