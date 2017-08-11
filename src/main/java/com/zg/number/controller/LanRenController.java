@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -52,7 +53,13 @@ public class LanRenController {
 
     //投资记录表添加数据
     @RequestMapping("insertRecord")
-    private String insertRecord(Record record){
+    private String insertRecord(Record record, HttpSession session){
+        Object obj = session.getAttribute("uId");
+        int id = 0;
+        if(obj!=null){
+            id = Integer.parseInt(String.valueOf(obj));
+        }
+        record.setUid(id);
         lanRenService.insertRecord(record);
         return "redirect:lanRen";
     }
