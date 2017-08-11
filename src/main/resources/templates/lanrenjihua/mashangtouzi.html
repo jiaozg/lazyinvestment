@@ -203,7 +203,6 @@
                    var revenueMoney = [[${oneInvestData.revenueMoney}]];
                    //期限
                    var projectTime = [[${oneInvestData.projectTime}]];
-//                   alert("年化收益率:"+revenueMoney+",项目期限:"+projectTime);
 
                    var app = angular.module('myApp', []);
                    app.controller('personCtrl', function($scope) {
@@ -212,9 +211,7 @@
                            if($scope.name==0){
                                return "";
                            }else{
-                              // alert($scope.name);
-
-                               return "预计收益"+(($scope.name)*revenueMoney/365)*projectTime+"元";
+                               return "预计收益"+(((($scope.name)*revenueMoney/365)*projectTime)/100).toFixed(2)+"元";
                            }
 
                        }
@@ -253,7 +250,7 @@
                         </div>
                         <!--<button type="submit" id="submit" class="g-btn g-btn-large-major g-btn-disabled tongji" data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>-->
                         <button type="submit" id="submit" class="g-btn g-btn-large-major tongji"  data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>
-                    </div>  </form>
+                      </form>
             </section>
         </section>
     </div>
