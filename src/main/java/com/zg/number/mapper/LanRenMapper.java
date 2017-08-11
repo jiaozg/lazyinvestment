@@ -21,4 +21,8 @@ public interface LanRenMapper {
 
     void insertRecord(Record record);//投资记录表添加数据
 
+    Invest selectRecordSurplusMoney(int uId);//根据id查询Record表剩余Money
+
+    void updateRecordSurplusMoney(int money,int uId);//根据id修改Record表Money
+
 }

@@ -40,5 +40,22 @@ public class IndexController {
         return "lanrenjihua/mashangtouzi";
     }
 
+    @RequestMapping("toLoginSuccess")
+    public String toLoginSuccess(Model model){
+        List<Invest> list = indexService.findIndexData();
+        for (Invest invest : list) {
+            System.out.print(invest.toString());
+        }
+        Invest invest = list.get(0);
+        Invest invest1 = list.get(1);
+        Invest invest2 = list.get(2);
+        model.addAttribute("data1", invest);
+        model.addAttribute("data2", invest1);
+        model.addAttribute("data3", invest2);
+        return "top/loginSuccess.html";
+    }
+
+
+
 
 }
