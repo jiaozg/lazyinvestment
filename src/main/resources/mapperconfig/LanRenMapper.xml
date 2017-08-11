@@ -8,11 +8,8 @@
         SELECT investId,planName,surplusMoney,surplusMoney,projectTime,revenueMoney FROM t_invest
     </select>
 
-
-    </select>
-
     <insert id="insertRecord" parameterType="com.zg.number.bean.Record">
-        INSERT INTO t_record (recordMoney,uid,irecordTime,investType,recordStatus) VALUES (#{recordMoney},#{uid},#{irecordTime},'手动投资','成功')
+     INSERT INTO t_record (recordMoney,uid,irecordTime,investType,recordStatus) VALUES (#{recordMoney},#{uid},#{irecordTime},'手动投资','成功')
     </insert>
 
 </mapper>
