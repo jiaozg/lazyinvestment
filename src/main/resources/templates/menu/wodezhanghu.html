@@ -49,17 +49,7 @@
           href="https://lantouzi.com/static/css/v3/uc/index.css?_v=e83125f5f8bff3d40859619a7fddcb00">
     <link rel="stylesheet" type="text/css"
           href="https://lantouzi.com/static/css/v3/uc/calendar_v2.css?_v=4d5682a0505e1311b97e71d20c1a5544">
-    <!--[if lt IE 9]>
-    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
-    <script src="/static/js/lib/selectivizr.js"></script>
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <script src="/static/js/lib/placeholder.js"></script>
-    <![endif]-->
-    <script src="/static/js/lib/require-2.1.18.min.js"></script>
-    <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
-    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
-</head>
+    <!--[if lt IE 9]></head>
 <body>
 <header class="g-topbar">
     <div class="l-container clearfix">
@@ -103,9 +93,7 @@
             <h1 class="l-hide">懒投资</h1>
         </a>
         <nav class="g-header-nav">
-            <!--<a class="g-header-nav-link " >首页</a>-->
-            <a class="g-header-nav-link " href="../index.html" th:if="${session.loginUser}==null" }>首页</a>
-            <a class="g-header-nav-link " href="/toLoginSuccess" th:if="${session.loginUser}!=null" }>首页</a>
+            <a class="g-header-nav-link on">首页</a>
             <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
             <a class="g-header-nav-link " href="./menungqian.html">零钱计划</a>
             <!--            <a class="g-header-nav-link " href="./menu/bianxian.html">变现计划</a>-->
@@ -115,7 +103,7 @@
             <a class="g-header-nav-link " href="./menungle.html">享乐计划
                 <!-- <i class="beta" style="width:24px;">新</i> --></a>
             <a class="g-header-nav-link " href="./menu/qunxing.html">群星计划</a>
-            <a class="g-header-nav-link on" href="/hwj/myCard" rel="nofollow">我的账户</a>
+            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
         </nav>
     </div>
 </header>
@@ -408,8 +396,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 
 
