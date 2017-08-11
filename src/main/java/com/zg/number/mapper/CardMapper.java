@@ -1,6 +1,7 @@
 package com.zg.number.mapper;
 
 import com.zg.number.bean.AddCard;
+import com.zg.number.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
@@ -12,4 +13,6 @@ import org.springframework.stereotype.Component;
 public interface CardMapper {
 
     void addcardxinxi(AddCard addCard);
+    User selectUserAll(String userName);
+    AddCard selectAddCard(int uid);
 }
