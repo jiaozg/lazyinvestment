@@ -2,6 +2,7 @@ package com.zg.number.service;
 
 import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
+import com.zg.number.bean.Record;
 
 import java.util.List;
 
@@ -22,4 +23,12 @@ public interface RealizeService {
      * 余额查询
      */
     public Captail selectYvE(Integer id);
+    /**
+     * 将投资信息注入到投资记录表
+     */
+    public void addRecord(Record record);
+    /**
+     * 修改资产表的账户余额
+     */
+    public void updateCaptail(Captail captail);
 }
