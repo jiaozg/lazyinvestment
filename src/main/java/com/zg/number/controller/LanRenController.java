@@ -54,6 +54,6 @@ public class LanRenController {
     @RequestMapping("insertRecord")
     private String insertRecord(Record record){
         lanRenService.insertRecord(record);
-        return "";
+        return "redirect:lanRen";
     }
 }
