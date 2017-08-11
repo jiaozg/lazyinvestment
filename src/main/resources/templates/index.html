@@ -45,11 +45,38 @@
                 <p>微信号：lantouzicom</p>
             </div>
         </div>
-        <div class="l-right">
+<!--        <div class="l-right">
             <p class="g-topbar-nav">
                 <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
                 <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
                    rel="nofollow">注册</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                &lt;!&ndash; <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> &ndash;&gt;
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>-->
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null"}>
+            <p class="g-topbar-nav">
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
+                <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
+                   rel="nofollow">注册</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
                 <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
                 <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
                 <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
@@ -76,7 +103,7 @@
             <a class="g-header-nav-link " href="./menu/xiangle.html">享乐计划
                 <!-- <i class="beta" style="width:24px;">新</i> --></a>
             <a class="g-header-nav-link " href="./menu/qunxing.html">群星计划</a>
-            <a class="g-header-nav-link " href="/rcy/toLogin" rel="nofollow">我的账户</a>
+            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
         </nav>
     </div>
 </header>
@@ -286,7 +313,7 @@
                         </div>
                     </div>
                     <div class="btn-wrapper">
-                        <a href="./centre/mashangtouzi.html" title="懒人计划12月期7018534"
+                        <a href="#" title="懒人计划12月期7018534"
                            class="g-btn g-btn-medium-major tongji" data-category="明星-马上投资" data-label="index">马上投资</a>
                     </div>
                     <div class="tags-wrapper">
@@ -301,27 +328,27 @@
 					</div>
 				</span>
                         <span class="hd-tag-container">
-											<a class="hd-tag" href="./menu/bianxian.html" target="_blank">可变现</a>
+											<a class="hd-tag" href="#" target="_blank">可变现</a>
 										<div class="hd-tips-container">
 						<div class="hd-tips">
 							<b></b>
 							<i></i>
 							<p class="info">本项目持有1个月之后可变现																	<a
-                                    href="https://lantouzi.com/bianxianjihua/rules" target="_blank"
+                                    href="#" target="_blank"
                                     class="link">查看详情</a>
 															</p>
 							</div>
 					</div>
 				</span>
                         <span class="hd-tag-container">
-											<a class="hd-tag" href="https://lantouzi.com/zt/project_reward"
+											<a class="hd-tag" href="#"
                                                target="_blank">抢标夺券</a>
 										<div class="hd-tips-container">
 						<div class="hd-tips">
 							<b></b>
 							<i></i>
 							<p class="info">最高可获100元投资券																	<a
-                                    href="https://lantouzi.com/zt/project_reward" target="_blank" class="link">查看详情</a>
+                                    href="#" target="_blank" class="link">查看详情</a>
 															</p>
 							</div>
 					</div>
@@ -351,7 +378,7 @@
                         </div>
                         <p>当前年化收益率<em>5.91%</em></p>
                         <p>锁定期<em>15</em>天</p>
-                        <a class="g-btn g-btn-medium-major" href="./menu/lingqian.html">看看零钱</a>
+                        <a class="g-btn g-btn-medium-major" href="#">看看零钱</a>
                     </div>
                 </div>
             </div>
@@ -385,7 +412,7 @@
                     <!-- <span class="bar"></span>活动专区 -->
                     <span class="bar"></span>邀请好友 </h2>
                 <div class="home-border-box">
-                    <a href="">
+                    <a href="#">
                         <img src="https://s1.lantouzi.com/img/invite/352.jpg">
                         <!-- <span class="link">查看详情<span class="iconfont">&#xe645;</span></span> -->
                     </a>

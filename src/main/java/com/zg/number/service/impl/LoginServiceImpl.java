@@ -1,5 +1,6 @@
 package com.zg.number.service.impl;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.User;
 import com.zg.number.mapper.LoginMapper;
 import com.zg.number.service.LoginService;
@@ -22,5 +23,10 @@ public class LoginServiceImpl implements LoginService {
     public User login(User user) {
         User loginUser = loginMapper.login(user);
         return loginUser;
+    }
+
+    @Override
+    public Captail findcurrentbalance(User user) {
+        return loginMapper.findcurrentbalance(user);
     }
 }

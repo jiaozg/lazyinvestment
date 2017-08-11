@@ -59,4 +59,5 @@ public class CardController {
         System.out.println(addCard);
         return "menu/gerenxinxixiangqing";
     }
+
 }

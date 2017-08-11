@@ -181,7 +181,7 @@
         <section class="prj-buy l-right">
             <div class="risk-tips">懒投资提醒您：投资有风险，选择需谨慎！</div>
             <section class="buy-section status-buy">
-                <form action="https://lantouzi.com/project/buy" id="buy-form">
+                <form action="insertRecord" id="buy-form" method="post">
                     <input type="hidden" name="prj_id" value="ltzd2b206ab01390609">
                     <input type="hidden" name="coupon_type" id="coupon_type" value="0">
                     <div>
@@ -193,7 +193,7 @@
 
                     <div ng-app="myApp" ng-controller="personCtrl">
                         <p class="touzi">投资金额：
-                            <input type="text" ng-model="name" name="touzi" id="amount"  class="g-input-money"  maxlength="10" autocomplete="off"/>
+                            <input type="text" ng-model="name" name="recordMoney" id="amount"  class="g-input-money"  maxlength="10" autocomplete="off"/>
                         </p>
                         <font color="#dc143c">{{fullName()}}</font>
                     </div>
@@ -203,7 +203,6 @@
                    var revenueMoney = [[${oneInvestData.revenueMoney}]];
                    //期限
                    var projectTime = [[${oneInvestData.projectTime}]];
-//                   alert("年化收益率:"+revenueMoney+",项目期限:"+projectTime);
 
                    var app = angular.module('myApp', []);
                    app.controller('personCtrl', function($scope) {
@@ -212,9 +211,7 @@
                            if($scope.name==0){
                                return "";
                            }else{
-                              // alert($scope.name);
-
-                               return "预计收益"+(($scope.name)*revenueMoney/365)*projectTime+"元";
+                               return "预计收益"+(((($scope.name)*revenueMoney/365)*projectTime)/100).toFixed(2)+"元";
                            }
 
                        }
@@ -253,7 +250,7 @@
                         </div>
                         <!--<button type="submit" id="submit" class="g-btn g-btn-large-major g-btn-disabled tongji" data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>-->
                         <button type="submit" id="submit" class="g-btn g-btn-large-major tongji"  data-category="懒人计划详情-马上投资" data-label="project">马上投资</button>
-                    </div>  </form>
+                      </form>
             </section>
         </section>
     </div>

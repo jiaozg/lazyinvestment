@@ -1,5 +1,6 @@
 package com.zg.number.service;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.User;
 
 /**
@@ -8,4 +9,7 @@ import com.zg.number.bean.User;
 public interface LoginService {
 
     User login(User user);
+
+    //根据用户id查询当前用户账户余额
+    Captail findcurrentbalance(User user);
 }
