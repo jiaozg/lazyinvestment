@@ -5,12 +5,14 @@ import com.zg.number.bean.User;
 import com.zg.number.mapper.CardMapper;
 import com.zg.number.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by ${hanwenjian} on 2017/8/9.
  */
 @Service
+@Component
 public class CardServiceImpl implements CardService {
     @Autowired
     private CardMapper cardMapper;

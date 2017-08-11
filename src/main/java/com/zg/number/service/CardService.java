@@ -9,6 +9,8 @@ import com.zg.number.bean.User;
 
 public interface CardService {
     void addcardxinxi(AddCard addCard);
+
     User selectUserAll(String userName);
+
     AddCard selectAddCard(int uid);
 }
