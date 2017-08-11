@@ -33,7 +33,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         if(url.indexOf("selectInvest")>=0){
-                    return true;
+            return true;
         }
 
         HttpSession session = request.getSession();
