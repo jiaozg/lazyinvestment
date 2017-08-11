@@ -9,6 +9,8 @@
     </select>
 
 
+    </select>
+
     <insert id="insertRecord" parameterType="com.zg.number.bean.Record">
         INSERT INTO t_record (recordMoney,uid,irecordTime,investType,recordStatus) VALUES (#{recordMoney},#{uid},#{irecordTime},'手动投资','成功')
     </insert>
