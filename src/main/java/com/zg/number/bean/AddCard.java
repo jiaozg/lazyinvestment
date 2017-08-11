@@ -16,6 +16,7 @@ public class AddCard {
     private String cardCard;//银行卡
     private String cardPhone;//预留手机号
     private String cardPwd;//交易密码
+    private double cardYue;//银行卡里的余额
     private User user;//User实体类
     private int uid;//用户id
 }
