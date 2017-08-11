@@ -26,9 +26,15 @@ public class LoginInterceptor implements HandlerInterceptor {
          if(url.indexOf("login")>=0){
                 return true;
          }
-       /* if(url.indexOf("selectInvest")>=0){
+        if(url.indexOf("lanRen")>=0){
             return true;
-        }*/
+        }
+        if(url.indexOf("selectUserAndAssest")>=0){
+            return true;
+        }
+        if(url.indexOf("selectInvest")>=0){
+            return true;
+        }
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("loginUser");
