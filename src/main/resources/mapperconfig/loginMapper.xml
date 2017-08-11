@@ -8,4 +8,7 @@
  SELECT userId,username,balance FROM  t_user WHERE  (phone=#{phone} or userName=#{phone}) AND  password=#{password}
     </select>
 
+    <select id="findcurrentbalance" resultType="Captail" parameterType="user">
+        SELECT t_captail.captailMoney from t_captail where t_captail.userId = #{userId}
+    </select>
 </mapper>

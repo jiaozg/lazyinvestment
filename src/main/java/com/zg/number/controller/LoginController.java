@@ -1,5 +1,6 @@
 package com.zg.number.controller;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
 import com.zg.number.bean.User;
 import com.zg.number.service.IndexService;
@@ -40,6 +41,9 @@ public class LoginController {
         if (loginUser != null) {
             session.setAttribute("uId", loginUser.getUserId());
             session.setAttribute("loginUser", loginUser);
+            Captail captail = loginService.findcurrentbalance(loginUser);
+            session.setAttribute("captail",captail);
+            System.out.println(captail.getCaptailMoney());
             //登录成功后主页懒人计划中的三条数据
             List<Invest> list = indexService.findIndexData();
             for (Invest invest : list) {
