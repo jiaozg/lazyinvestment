@@ -49,11 +49,16 @@
           href="https://lantouzi.com/static/css/v3/uc/index.css?_v=e83125f5f8bff3d40859619a7fddcb00">
     <link rel="stylesheet" type="text/css"
           href="https://lantouzi.com/static/css/v3/uc/calendar_v2.css?_v=4d5682a0505e1311b97e71d20c1a5544">
-    <!--[if lt IE 9]><![endif]-->
-    <!--[if lte IE 9]><![endif]-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/static/js/lib/html5shiv-2.7.3.min.js"></script>
+    <script src="/static/js/lib/selectivizr.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="/static/js/lib/placeholder.js"></script>
+    <![endif]-->
+    <script src="/static/js/lib/require-2.1.18.min.js"></script>
     <script src="https://lantouzi.com/static/js/config.js?_v=ac0e2d4d0239a90fb8534705ac19027e"></script>
-
+    <script src="/static/js/lib/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 <header class="g-topbar">
@@ -138,7 +143,7 @@
 			</span>
                     <span class="process-num">40%</span>
                 </div>
-                <a href="#" class="g-btn g-btn-small-major recharge tongji" title="充值"
+                <a href="/rcy/toChongZhi" class="g-btn g-btn-small-major recharge tongji" title="充值"
                    data-category="充值" data-label="index">充值</a>
                 <a href="#" class="g-btn g-btn-small-minor withdraw" title="提现">提现</a>
                 <div class="lpass-card lpass-card-0">
@@ -154,9 +159,7 @@
                 <li class="box">
                     <div class="tit">可用余额</div>
                     <div class="balance">
-                        <strong>
-                            <span th:text="${session.loginUser.balance}"></span>
-                        </strong>元
+                        <strong><span th:text="${session.loginUser.balance}"></span></strong>元
                     </div>
                 </li>
                 <li class="box">
@@ -406,17 +409,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         </script>
         <script>
             var cookie_key = "userUnuseCoupon_" + "1381188",
@@ -481,26 +473,26 @@
             </ul>
             <h5>我的投资</h5>
             <ul class="menu-list">
-                <li><a href="#"><span class="uc-menu-item "><span
+                <li><a href="https://lantouzi.com/user/order/datalist"><span class="uc-menu-item "><span
                         class="iconfont">&#xe629;</span>懒人计划</span></a></li>
-                <li><a href="#"><span class="uc-menu-item "><span
+                <li><a href="https://lantouzi.com/user/lingqianjihua"><span class="uc-menu-item "><span
                         class="iconfont">&#xe60e;</span>零钱计划</span></a></li>
-                <li><a href="#"><span
+                <li><a href="https://lantouzi.com/user/bianxianjihua/project/orderlist"><span
                         class="uc-menu-item "><span class="iconfont">&#xe600;</span>变现计划
                     <!-- <span class="beta">Beta</span> --></span></a></li>
-                <li><a href="#"><span class="uc-menu-item "><span class="iconfont"
-                                                                  style="font-size:24px;left:32px;">&#xe690;</span>斗牛计划</span></a>
+                <li><a href="https://lantouzi.com/user/douniujihua"><span class="uc-menu-item "><span class="iconfont"
+                                                                                                      style="font-size:24px;left:32px;">&#xe690;</span>斗牛计划</span></a>
                 </li>
-                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe62d;</span>享乐计划</span></a>
+                <li><a href="https://lantouzi.com/user/enjoy"><span class="uc-menu-item "><span class="iconfont">&#xe62d;</span>享乐计划</span></a>
                 </li>
-                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe646;</span>群星计划</span></a>
+                <li><a href="https://lantouzi.com/user/stars"><span class="uc-menu-item "><span class="iconfont">&#xe646;</span>群星计划</span></a>
                 </li>
             </ul>
             <h5>我的红包</h5>
             <ul class="menu-list">
-                <li><a href="#><span class=" uc-menu-item "><span
+                <li><a href="https://lantouzi.com/user/coupon?type=1"><span class="uc-menu-item "><span
                         class="iconfont">&#xe61a;</span>投资券</span></a></li>
-                <li><a href="#"><span class="uc-menu-item "><span class="iconfont">&#xe627;</span>体验金</span></a>
+                <li><a href="https://lantouzi.com/user/tiyanjin"><span class="uc-menu-item "><span class="iconfont">&#xe627;</span>体验金</span></a>
                 </li>
             </ul>
             <h5>我的信息</h5>
@@ -520,16 +512,16 @@
                 <h3 class="g-footer-title">关于懒投资</h3>
                 <nav>
                     <li class="g-footer-list">
-                        <a href="#" class="g-footer-link" rel="nofollow">公司介绍</a>
+                        <a href="https://lantouzi.com/about/index" class="g-footer-link" rel="nofollow">公司介绍</a>
                     </li>
                     <li class="g-footer-list">
-                        <a href="#" class="g-footer-link" rel="nofollow">团队介绍</a>
+                        <a href="https://lantouzi.com/about/team" class="g-footer-link" rel="nofollow">团队介绍</a>
                     </li>
                     <li class="g-footer-list">
-                        <a href="#" class="g-footer-link" rel="nofollow">联系我们</a>
+                        <a href="https://lantouzi.com/about/contact" class="g-footer-link" rel="nofollow">联系我们</a>
                     </li>
                     <li class="g-footer-list">
-                        <a href="#" class="g-footer-link" rel="nofollow">加入我们</a>
+                        <a href="https://lantouzi.com/about/joinus" class="g-footer-link" rel="nofollow">加入我们</a>
                     </li>
                 </nav>
             </div>

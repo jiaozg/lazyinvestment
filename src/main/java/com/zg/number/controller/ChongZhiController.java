@@ -10,5 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("rcy")
 public class ChongZhiController {
 
+    @RequestMapping("toChongZhi")
+    private String toChongZhi() {
+        return "top/chongzhi";
+    }
 
 }

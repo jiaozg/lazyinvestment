@@ -55,5 +55,15 @@ public class LanRenServiceImp implements LanRenService {
         lanRenMapper.insertRecord(record);
     }
 
+    @Override
+    public Invest selectRecordSurplusMoney(int uId) {
+        return lanRenMapper.selectRecordSurplusMoney(uId);
+    }
+
+    @Override
+    public void updateRecordSurplusMoney(int money, int uId) {
+        lanRenMapper.updateRecordSurplusMoney(money,uId);
+    }
+
     ;
 }

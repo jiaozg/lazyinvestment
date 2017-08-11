@@ -26,4 +26,12 @@
         INSERT INTO t_record (recordMoney,uid,irecordTime,investType,recordStatus) VALUES (#{recordMoney},#{uid},#{irecordTime},'手动投资','成功')
     </insert>
 
+    <select id="selectRecordSurplusMoney" resultType="com.zg.number.bean.Invest" parameterType="int">
+        SELECT surplusMoney FROM t_invest WHERE investId = #{uid}
+    </select>
+
+    <update id="updateRecordSurplusMoney" parameterType="int">
+        UPDATE t_invest SET surplusMoney = surplusMoney + #{money} WHERE investId = #{uid}
+    </update>
+
 </mapper>
