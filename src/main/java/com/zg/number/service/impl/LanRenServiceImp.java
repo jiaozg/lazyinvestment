@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,8 +46,12 @@ public class LanRenServiceImp implements LanRenService {
         return list;
     }
 
-    @Override
     public void insertRecord(Record record) {
+        Date date = new Date();
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        String time=format.format(date);
+        System.out.println(time);
+        record.setIrecordTime(time);
         lanRenMapper.insertRecord(record);
     }
 
