@@ -153,6 +153,7 @@
                     </tr>
                     </tbody>
                 </table>
+
             </div>
             <ul class="extra-info">
                 <li>
@@ -204,17 +205,19 @@
 
                         function lianDong(){
                             var  sp = [[${project.surplusMoney}]];
-                            //alert(surplus);
+                            //alert(sp);
                             //点击全额投资:点击按钮隐藏
                             $("#full").hide();
                             //将马上投资按钮中的禁用class样式属性移除
                             $("#jinyong").removeClass("g-btn-disabled");
                             //将剩余的金额添加到输入框里边
                             $("#amount").val(sp);
-                            var shouyi =""+ ((sp)*revenueMoney/365)*projectTime;
+                            var shouyi =""+ (((sp)*revenueMoney/365)*projectTime)/100;
+                           // alert(shouyi);
                             var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
                             var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
                             var shouyi4 =shouyi3+shouyi2;
+                            //alert(shouyi4);
                             $("#wrx").html("预计收益"+shouyi4+"元").css("color","red");
                         }
 
@@ -237,7 +240,7 @@
                                     //将马上投资的按钮的禁用属性移除
                                         $("#jinyong").removeClass("g-btn-disabled");
                                         $("#full").show();
-                                        var shouyi =""+ (($scope.name)*revenueMoney/365)*projectTime;
+                                        var shouyi =""+ ((($scope.name)*revenueMoney/365)*projectTime)/100;
                                         var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
                                         var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
                                         var shouyi4 =shouyi3+shouyi2;
@@ -249,7 +252,7 @@
                                         $("#wrx").hide();
                                         $("#full").hide();
                                         $("#jinyong").removeClass("g-btn-disabled");
-                                        var shouyi =""+ (($scope.name)*revenueMoney/365)*projectTime;
+                                        var shouyi =""+ ((($scope.name)*revenueMoney/365)*projectTime)/100;
                                         var shouyi2 = shouyi.substring(shouyi.indexOf("."),shouyi.indexOf(".")+3);
                                         var shouyi3 = shouyi.substring(0,shouyi.indexOf("."));
                                         var shouyi4 =shouyi3+shouyi2;
@@ -371,6 +374,7 @@
                     </tr>
                     </tbody>
                 </table>
+
             </div>
         </section>
     </div>
@@ -538,7 +542,7 @@
     var licaiEndTime = new Date('2016/06/01 00:00:00'.replace(/-/g, "/"));
     $(document).ready(function(e){
         if (showLicaiBanner && window.CONFIG.SERVER_TIME < licaiEndTime && (typeof localStorage !== undefined) && !localStorage.licai360Showed) {
-            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgba(255,98,67,0.9);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="/zt/licaijie360xinshou" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
+            var html = '<div style="position: fixed;width: 100%;height: 100px;left: 0;bottom: 0;background:rgb(255,24,0);z-index:2000;" class="licai360-footer"><div class="l-container"><a class="close-the-licai" style="display: block;width: 4%;position: absolute;left: 9.5%;top: 0;height: 50%;"></a><a href="/zt/licaijie360xinshou" style="display: block;position: absolute;bottom: 0;right: 0;width: 87%;height: 100%;"></a><img src="https://s1.lantouzi.com/uploader/2016527/08234e17a720e010c5ece8d011eab0f31464349675162.png" style="margin: 0 auto;display: block;"></div></div>';
             $('body').append(html);
             $('.close-the-licai').on('click', function(){
                 $('.licai360-footer').hide();
@@ -548,41 +552,7 @@
     });
 </script>
 
-<!--<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?6dea39ac37df9c6f3e7b096755b73949";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
 
-        window.bd_track_event =function(category, action, label, value) {
-            value = value || 0;
-            if (category && action && label) {
-                _hmt.push(['_trackEvent', category, action, label, value]);
-            }
-        };
-        // $(document).on('mousedown', '.tongji', function(e){
-        // 	var $el = $(this);
-        // 	var category = $el.attr('data-category') || $.trim($el.text()),
-        // 		action   = $el.attr('data-action') || 'click',
-        // 		label    = $el.attr('data-label') || '',
-        // 		value    = $el.attr('data-value') || '';
-        // 	_hmt.push(['_trackEvent', category, action, label, value]);
-        // });
-
-    })();
-</script>-->
-<!--<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-60788439-1', 'auto', {'allowLinker': true});
-    ga('require', 'linker');
-    ga('linker:autoLink', ['lanlicai.com']);
-    ga('send', 'pageview');
-</script>-->
 <script>
     (function($) {
         var Track_Obj = {
