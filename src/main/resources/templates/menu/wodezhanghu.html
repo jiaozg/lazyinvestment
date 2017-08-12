@@ -83,15 +83,31 @@
                 <p>微信号：lantouzicom</p>
             </div>
         </div>
-        <div class="l-right">
+        <!--  未登录 -->
+        <div class="l-right" id="meilogin" th:if="${session.loginUser}==null"}>
             <p class="g-topbar-nav">
                 <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">登录</a>
                 <a href="/hwj/toregister" class="g-topbar-nav-link tongji" data-category="注册" data-label="header"
                    rel="nofollow">注册</a>
-                <a href="../top/vip.html" class="g-topbar-nav-link">VIP会员</a>
-                <a href="../top/security.html" class="g-topbar-nav-link">安全保障</a>
-                <a href="../top/information.html" class="g-topbar-nav-link">信息披露</a>
-                <a href="../top/help.html" class="g-topbar-nav-link">帮助中心</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
+            </p>
+        </div>
+
+        <!-- 已登录 -->
+        <div class="l-right" th:if="${session.loginUser}!=null">
+            <p class="g-topbar-nav">
+                <a href="#" class="g-topbar-nav-link" rel="nofollow">欢迎，<span th:text="${session.loginUser.userName}"
+                ></span></a>
+                <a href="/rcy/toLogin" class="g-topbar-nav-link" rel="nofollow">[退出]</a>
+                <a href="top/vip.html" class="g-topbar-nav-link">VIP会员</a>
+                <!-- <a href="https://lantouzi.com/financing" target="_blank" class="g-topbar-nav-link">企业融资</a> -->
+                <a href="top/security.html" class="g-topbar-nav-link">安全保障</a>
+                <a href="top/information.html" class="g-topbar-nav-link">信息披露</a>
+                <a href="top/help.html" class="g-topbar-nav-link">帮助中心</a>
             </p>
         </div>
     </div>
@@ -103,17 +119,18 @@
             <h1 class="l-hide">懒投资</h1>
         </a>
         <nav class="g-header-nav">
-            <a class="g-header-nav-link on">首页</a>
+            <a class="g-header-nav-link " href="../index.html" th:if="${session.loginUser}==null"}>首页</a>
+            <a class="g-header-nav-link " href="/toLoginSuccess" th:if="${session.loginUser}!=null"}>首页</a>
             <a class="g-header-nav-link " href="/fs/lanRen">懒人计划</a>
-            <a class="g-header-nav-link " href="./menungqian.html">零钱计划</a>
+            <a class="g-header-nav-link " href="#">零钱计划</a>
             <!--            <a class="g-header-nav-link " href="./menu/bianxian.html">变现计划</a>-->
-            <a th:href="@{/wrxlectInvest}" class="g-header-nav-link ">
+            <a th:href="@{/wrx/selectInvest}" class="g-header-nav-link ">
                 变现计划
             </a>
-            <a class="g-header-nav-link " href="./menungle.html">享乐计划
+            <a class="g-header-nav-link " href="#">享乐计划
                 <!-- <i class="beta" style="width:24px;">新</i> --></a>
-            <a class="g-header-nav-link " href="./menu/qunxing.html">群星计划</a>
-            <a class="g-header-nav-link " href="/hwj/myCard" rel="nofollow">我的账户</a>
+            <a class="g-header-nav-link " href="#">群星计划</a>
+            <a class="g-header-nav-link on" href="/hwj/myCard" rel="nofollow">我的账户</a>
         </nav>
     </div>
 </header>
@@ -159,7 +176,7 @@
                 <li class="box">
                     <div class="tit">可用余额</div>
                     <div class="balance">
-                        <strong><span th:text="${session.loginUser.balance}"></span></strong>元
+                        <strong><span th:text="${session.captail.captailMoney}"></span></strong>元
                     </div>
                 </li>
                 <li class="box">
@@ -169,7 +186,7 @@
                     </div>
                     <div class="detail clearfix">
                         <dt>账户余额：</dt>
-                        <dd>0.<span>00</span>元</dd>
+                        <dd><span th:text="${session.captail.captailMoney}"></span>元</dd>
                         <dt>待收本金：</dt>
                         <dd>0.<span>00</span>元</dd>
                         <dt>待收利息：</dt>
