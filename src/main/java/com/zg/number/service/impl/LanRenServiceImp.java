@@ -1,5 +1,6 @@
 package com.zg.number.service.impl;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
 import com.zg.number.bean.Record;
 import com.zg.number.bean.User;
@@ -61,8 +62,18 @@ public class LanRenServiceImp implements LanRenService {
     }
 
     @Override
-    public void updateRecordSurplusMoney(int money, int uId) {
-        lanRenMapper.updateRecordSurplusMoney(money,uId);
+    public void updateRecordSurplusMoney(Invest invest) {
+        lanRenMapper.updateRecordSurplusMoney(invest);
+    }
+
+    @Override
+    public Captail selectCaptail(int id) {
+        return lanRenMapper.selectCaptail(id);
+    }
+
+    @Override
+    public void updateCaptail(Captail captail) {
+        lanRenMapper.updateCaptail(captail);
     }
 
     ;

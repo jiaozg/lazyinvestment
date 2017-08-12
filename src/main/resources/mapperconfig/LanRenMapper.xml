@@ -30,8 +30,16 @@
         SELECT surplusMoney FROM t_invest WHERE investId = #{uid}
     </select>
 
-    <update id="updateRecordSurplusMoney" parameterType="int">
-        UPDATE t_invest SET surplusMoney = surplusMoney + #{money} WHERE investId = #{uid}
+    <update id="updateRecordSurplusMoney" parameterType="com.zg.number.bean.Invest">
+        UPDATE t_invest SET surplusMoney = surplusMoney - #{surplusMoney} WHERE investId = #{investId}
+    </update>
+
+    <select id="selectCaptail" resultType="com.zg.number.bean.Captail" parameterType="int">
+        SELECT captailMoney FROM t_captail WHERE userId = #{id}
+    </select>
+
+    <update id="updateCaptail" parameterType="com.zg.number.bean.Captail">
+        UPDATE t_captail SET captailMoney = captailMoney - #{captailMoney} WHERE userId = #{userId}
     </update>
 
 </mapper>
