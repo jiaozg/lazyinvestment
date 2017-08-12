@@ -27,11 +27,6 @@ public class RealizrServiceImpl implements RealizeService {
     @Override
     public List<Invest> selectInvest() {
         List<Invest> invests = realizeMapper.selectInvest();
-        if(invests!=null&&invests.size()>0){
-            for (Invest t:invests){
-                System.out.println(t);
-           }
-        }
         return invests;
     }
     /**
@@ -69,8 +64,11 @@ public class RealizrServiceImpl implements RealizeService {
     public void updateCaptail(Captail captail) {
         realizeMapper.updateCaptail(captail);
     }
-
-
-
-
+    /**
+     * 修改一锤定音表的剩余金额
+     */
+    @Override
+    public void updateSurplusMoney(Invest invest) {
+        realizeMapper.updateSurplusMoney(invest);
+    }
 }

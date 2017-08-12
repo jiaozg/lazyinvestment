@@ -147,7 +147,9 @@
         $('.banner .box').hide().removeClass("show");
         $('.banner .info').show();
     });
-</script><div class="l-container">
+</script>
+
+<div class="l-container">
     <div class="main">
         <ul class="recommend-project clearfix" >
 
@@ -226,10 +228,10 @@
             <a href="https://lantouzi.com/bianxianjihua/index?order=1&dir=1&tag=1&subtag=0#prjList" data-order="2" class="deadline down ">项目期限</a>
         </div>
 
-        <ul class="project-list">
+        <ul class="project-list" th:each="bx:${list}">
             <li>
                 <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzc8ac2a2d363eb37f">变现20月期2480858</a>
+                    <a href="#"><span th:text="${bx.planName}"></span></a>
                     <div class="g-tip-wrapper">
                         <div class="project-tag hd-tag">
                             <span>荐</span>赚更多
@@ -244,455 +246,33 @@
 
                 <div class="project-info clearfix">
                     <div class="info-one">
-                        <p class="fco info-num"><em>9.64%</em></p>
+                        <p class="fco info-num"><em><span th:text="${bx.planMoney}+'%'"></span></em></p>
                         <small>预计年化</small>
                     </div>
                     <div class="info-two">
-                        <p class="info-num"><em>601</em>天</p>
+                        <p class="info-num"><em><span th:text="${bx.projectTime}+'天'"></span></em></p>
                         <small>项目期限</small>
                     </div>
                     <div class="info-three">
-                        <p class="info-num"><em>50,852.<span>82</span></em></p>
+                        <p class="info-num"><em><span th:text="${bx.surplusMoney}+'元'"></span></em></p>
                         <small>剩余金额（元）</small>
                     </div>
                     <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltzc8ac2a2d363eb37f" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzacf4cfdadd088e8a">变现23月期2480623</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.47%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>679</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>10,211.<span>49</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltzacf4cfdadd088e8a" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzfaab93b70b2f9147">变现16月期1880652</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.42%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>466</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>3,034.<span>48</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltzfaab93b70b2f9147" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzebc3d5ce352a96b6">变现16月期1880624</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.42%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>469</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>10,115.<span>35</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltzebc3d5ce352a96b6" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz3c25a291c9c236c2">变现15月期1880642</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.42%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>461</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>10,114.<span>38</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz3c25a291c9c236c2" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz5dfa86a907a34146">变现15月期1880685</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.42%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>443</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>707.<span>84</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz5dfa86a907a34146" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz597f0f2a41e26b81">变现16月期1880687</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.42%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>467</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>5,158.<span>70</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz597f0f2a41e26b81" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzc3ac2d3025ef32ad">变现15月期1880627</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.42%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>464</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>4,773.<span>75</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltzc3ac2d3025ef32ad" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz4dac46f44d173d8d">变现17月期1880655</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.41%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>504</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>2,732.<span>26</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz4dac46f44d173d8d" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltzcb331a37e15794b4">变现17月期1880760</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.40%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>503</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>813.<span>32</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltzcb331a37e15794b4" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz4aa378243ec3fa9e">变现15月期1880761</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.40%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>464</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>10,117.<span>07</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz4aa378243ec3fa9e" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz28db19179b739f48">变现16月期1880777</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.40%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>465</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>10,117.<span>19</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz28db19179b739f48" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltz6ee8ebd1977e4dd5">变现16月期1880776</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.40%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>487</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>6,086.<span>32</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltz6ee8ebd1977e4dd5" class="g-btn g-btn-medium-major">马上投资</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="pro-head">
-                    <a href="https://lantouzi.com/bianxianjihua/view?id=ltze2ca711fb1dfe29b">变现16月期1880774</a>
-                    <div class="g-tip-wrapper">
-                        <div class="project-tag hd-tag">
-                            <span>荐</span>赚更多
-                        </div>
-                        <div class="g-tip-layer g-tip-layer-b">
-                            本项目预计年化高于同期限懒人计划，推荐购买
-                            <b></b>
-                            <i></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-info clearfix">
-                    <div class="info-one">
-                        <p class="fco info-num"><em>9.40%</em></p>
-                        <small>预计年化</small>
-                    </div>
-                    <div class="info-two">
-                        <p class="info-num"><em>467</em>天</p>
-                        <small>项目期限</small>
-                    </div>
-                    <div class="info-three">
-                        <p class="info-num"><em>10,117.<span>43</span></em></p>
-                        <small>剩余金额（元）</small>
-                    </div>
-                    <div class="info-four">
-                        <a href="https://lantouzi.com/bianxianjihua/view?id=ltze2ca711fb1dfe29b" class="g-btn g-btn-medium-major">马上投资</a>
+                        <a  href="show.html" th:href="@{/wrx/mashang(id=${bx.investId})}" class="g-btn g-btn-medium-major btn-invest" >
+                            马上投资
+                        </a>
                     </div>
                 </div>
             </li>
         </ul>
 
-        <div id="pager"></div>
+        <div id="pager">
+
+            <a th:href="@{selectInvest(pageNum=${page.navigateFirstPage})}">首页</a>
+            <a th:href="@{selectInvest(pageNum=${page.prePage})}">上一页</a>
+            <a th:href="@{selectInvest(pageNum=${page.nextPage})}">下一页</a>
+            <a th:href="@{selectInvest(pageNum=${page.navigateLastPage})}">末页</a>
+        </div>
     </div>
     <div class="aside">
         <div class="top-pos">
@@ -950,6 +530,8 @@
                     <a href="https://lantouzi.com/links">全部</a>
                 </div>
             </div> -->
+
+
         <div class="g-footer-safeguard clearfix">
             <a href="http://www.xmccb.com" class="safe-yeepay" target="_blank" rel="nofollow"></a>
             <a href="http://www.geotrust.com/" class="safe-geotrust" target="_blank" rel="nofollow"></a>
@@ -957,6 +539,7 @@
             <a href="https://www.sobug.com/" class="safe-sobug" target="_blank" rel="nofollow"></a>
             <a href="http://si.trustutn.org/info?sn=813161019000540855329" class="safe-trustutn" target="_blank" rel="nofollow"></a>
         </div>
+
         <div class="g-footer-copyright">
             <p class="g-footer-copyright-line">
                 京ICP备14023229号 京ICP证150240号

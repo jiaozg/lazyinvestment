@@ -34,5 +34,13 @@ public interface RealizeMapper {
      * 修改资产表的账户余额
      */
     public void updateCaptail(Captail captail);
+    /**
+     * 修改一锤定音表的剩余金额
+     */
+    public void updateSurplusMoney(Invest invest);
+    /**
+     * 分页查询
+     */
+
 
 }

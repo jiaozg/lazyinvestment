@@ -28,4 +28,14 @@
     <update id="updateCaptail" parameterType="com.zg.number.bean.Captail" >
       update t_captail set captailMoney = #{captailMoney} where userId = #{userId};
     </update>
+
+    <!--修改一锤定音表的剩余金额-->
+    <update id="updateSurplusMoney" parameterType="com.zg.number.bean.Invest" >
+        update t_invest set surplusMoney=#{surplusMoney} where userId=#{userId}
+    </update>
+
+
+
+
+
 </mapper>
