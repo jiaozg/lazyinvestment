@@ -1,5 +1,6 @@
 package com.zg.number.controller;
 
+import com.zg.number.bean.Captail;
 import com.zg.number.bean.Invest;
 import com.zg.number.bean.Record;
 import com.zg.number.bean.User;
@@ -45,9 +46,17 @@ public class LanRenController {
 
     //投资详情页面数据获取
     @RequestMapping("touzi")
-    public String findInvestData(Model model, Integer id){
+    public String findInvestData(Model model, Integer id,HttpSession session,ModelMap modelMap){
+        session.setAttribute("id",id);
         Invest oneInvestData = indexService.findOneInvestData(id);
         model.addAttribute("oneInvestData",oneInvestData);
+        Object obj = session.getAttribute("uId");
+        int ids = 0;
+        if(obj!=null){
+            ids = Integer.parseInt(String.valueOf(obj));
+        }
+        Captail captail1 = lanRenService.selectCaptail(ids);
+        modelMap.addAttribute("captail1",captail1);
         return "lanrenjihua/mashangtouzi";
     }
 
@@ -55,12 +64,53 @@ public class LanRenController {
     @RequestMapping("insertRecord")
     private String insertRecord(Record record, HttpSession session){
         Object obj = session.getAttribute("uId");
+        session.setAttribute("money",record.getRecordMoney());
         int id = 0;
         if(obj!=null){
             id = Integer.parseInt(String.valueOf(obj));
         }
         record.setUid(id);
         lanRenService.insertRecord(record);
+        return "redirect:updateSurplusMoney";
+    }
+
+    @RequestMapping("updateSurplusMoney")
+    private String selectRecordSurplusMoney(HttpSession session,Invest invest){
+        Object obj = session.getAttribute("id");
+        Object object = session.getAttribute("money");
+        int id = 0;
+        int money = 0;
+        if(obj!=null){
+            id = Integer.parseInt(String.valueOf(obj));
+        }
+        if(object!=null){
+            money = Integer.parseInt(String.valueOf(object));
+        }
+        Invest in = lanRenService.selectRecordSurplusMoney(id);
+        invest.setInvestId(id);
+        invest.setSurplusMoney(money);
+        lanRenService.updateRecordSurplusMoney(invest);
+        return "redirect:updateCaptailMoney";
+    }
+
+    @RequestMapping("updateCaptailMoney")
+    private String updateCaptail(HttpSession session, Captail captail){
+        Object obj = session.getAttribute("uId");
+        Object object = session.getAttribute("money");
+        int id = 0;
+        int money = 0;
+        if(obj!=null){
+            id = Integer.parseInt(String.valueOf(obj));
+        }
+        if(object!=null){
+            money = Integer.parseInt(String.valueOf(object));
+        }
+//        Captail captail1 = lanRenService.selectCaptail(id);
+        captail.setUserId(id);
+        captail.setCaptailMoney(money);
+        lanRenService.updateCaptail(captail);
         return "redirect:lanRen";
     }
+
+
 }
